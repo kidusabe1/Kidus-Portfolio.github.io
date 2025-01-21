@@ -18,12 +18,63 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header" class="alt">
-						<a href="index.html" class="logo"><strong>Selam!</strong> <span>Have a nice stay.</span></a>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+				<header id="header">
+					<a href="index.html" class="logo">
+						<strong id="greeting">Selam!</strong> 
+						<span>Enjoy your stay :)</span>
+					</a>
+					<nav>
+						<a href="#menu">Menu</a>
+					</nav>
+				</header>
+
+				<script>
+					document.addEventListener("DOMContentLoaded", function () {
+						const greetings = [
+							"Selam!",  // Amharic
+							"Hello!",  // English
+							"Hola!",   // Spanish
+							"Bonjour!", // French
+							"Hallo!",  // German
+							"Ciao!",   // Italian
+							"नमस्ते!", // Hindi
+							"こんにちは!", // Japanese
+							"안녕하세요!", // Korean
+							"Привет!", // Russian
+							"Merhaba!", // Turkish
+							"你好!"     // Chinese
+						];
+				
+						let index = 0;
+						const greetingElement = document.getElementById("greeting");
+				
+						function changeGreeting() {
+							greetingElement.style.opacity = 0; // Fade out
+							setTimeout(() => {
+								index = (index + 1) % greetings.length; // Loop through greetings
+								greetingElement.textContent = greetings[index];
+								greetingElement.style.opacity = 1; // Fade in
+							}, 500);
+						}
+				
+						setInterval(changeGreeting, 2700); // Change every 2.5 seconds
+					});
+				</script>
+
+				<style>
+					@keyframes changeGreeting {
+						0% { opacity: 1; transform: translateY(0); }
+						25% { opacity: 0; transform: translateY(-20px); } /* Move up & fade out */
+						50% { opacity: 0; transform: translateY(20px); }  /* Move down */
+						75% { opacity: 1; transform: translateY(0); }     /* Fade in */
+						100% { opacity: 1; transform: translateY(0); }
+					}
+
+					#greeting {
+						display: inline-block;
+						animation: changeGreeting 3s infinite;
+					}
+				</style>
 
 				<!-- Menu -->
 					<nav id="menu">
@@ -41,9 +92,10 @@
 
 				<!-- Banner -->
 					<section id="banner" class="major">
+
 						<div class="inner">
 							<header class="major">
-								<h1>Hi, my name is Kidus</h1>
+								<h1>Hi, my name is <span id="myName">Kidus</span></h1>
 							</header>
 							<div class="content">
 								<p>You may scroll down to check my <span class="highlight_my">featured and most recent PROJECTS</span>. Feel Free to contact me for any questions.
@@ -59,34 +111,46 @@
 					<div id="main">
 
 						<!-- One -->
+						 
 							<section id="one" class="tiles">
 								<article>
 									<span class="image">
-										<img src="images/pic01.png" alt="" />
+										<img src="images/llama.jpeg" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="https://public.tableau.com/app/profile/kidus.abebe.mekonen/viz/ElectricVehicleDataAnalysis_17240895891830/EVProductAnalysis" class="link" target = "_blank">EV Vehicle Analysis</a></h3>
-										<p>A Tableau Project on various types of EVs in US</p>
+										<h3><a href="https://github.com/kidusabe1/Multilingual-Youtube-Video-Summarizer" class="link" target = "_blank">NLP Based Multilingual Video Summarizer</a></h3>
+										<p>Fine-tuned LLaMA3 and open-source language translators, summarizing YouTube videos in 200+
+											languages.</p>
 									</header>
 								</article>
 								<article>
 									<span class="image">
-										<img src="images/pic02.png" alt="" />
+										<img src="images/yolo.png" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="https://public.tableau.com/views/SalesDashboard_17118250039380/SalesDashboard?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link" class="link" target = "_blank">Sales-Dashboard</a></h3>
-										<p>Dynamic Supermarket Sales Analysis Dashboard using Tableau</p>
+										<h3><a href="https://github.com/kidusabe1/Waste-Classifier" class="link" target = "_blank">Lightweight Waste Classifier using Nvidia Nanojet and YOLOv11</a></h3>
+										<p>Developed a waste classification system using NVIDIA NanoJet and YOLOv11, achieving 92% accuracy
+											with real-time processing under 50ms.
+										</p>
 									</header>
 								</article>
+
+
+								
+								
 								<article>
 									<span class="image">
-										<img src="images/pic03.png" alt="" />
+										<img src="images/anomaly.avif" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="https://github.com/kidusabe1/Twitter-Data-Pipelining" class="link" target = "_blank">X Data Pipelining</a></h3>
-										<p>X/Twitter-airflow-data-engineering-project</p>
+										<h3><a href="https://github.com/kidusabe1/CCTV_Captioning" class="link" target = "_blank">CCTV Automated Anomaly Detection and Auto-Captioning</a></h3>
+										<p>Built Automated Anomaly Detection using C3D-v1.0 and a three-layer neural network, achieving
+											0.9602 Cap Score on the UCF-Crime dataset.</p>
 									</header>
 								</article>
+
+
+								
 								<article>
 									<span class="image">
 										<img src="images/pic04.jpg" alt="" />
@@ -96,24 +160,33 @@
 										<p>Micrograd is the Backbone of Backpropagation models.</p>
 									</header>
 								</article>
-								<!-- <article>
-									<span class="image">
-										<img src="images/pic05.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="landing.html" class="link">Consequat</a></h3>
-										<p>Ipsum dolor sit amet</p>
-									</header>
-								</article>
+								
 								<article>
 									<span class="image">
-										<img src="images/pic06.jpg" alt="" />
+										<img src="images/pic01.png" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="landing.html" class="link">Etiam</a></h3>
-										<p>Feugiat amet tempus</p>
+										<h3><a href="https://public.tableau.com/app/profile/kidus.abebe.mekonen/viz/ElectricVehicleDataAnalysis_17240895891830/EVProductAnalysis" class="link" target = "_blank">EV Vehicle Analysis</a></h3>
+										<p>A Tableau Project on various types of EVs in US</p>
 									</header>
-								</article>  -->
+								</article>
+
+
+
+								<article>
+									<span class="image">
+										<img src="images/pic02.png" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="https://public.tableau.com/views/SalesDashboard_17118250039380/SalesDashboard?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link" class="link" target = "_blank">Sales-Dashboard</a></h3>
+										<p>Dynamic Supermarket Sales Analysis Dashboard using Tableau</p>
+									</header>
+								</article>
+
+
+
+								
+								
 							</section>
 
 						<!-- Two -->

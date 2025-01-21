@@ -36,6 +36,22 @@ body {
 ol, ul {
 	list-style: none;
 }
+.tiles article:hover h3 a,
+.tiles article:hover p {
+    color: black !important; /* Change text color to black */
+    background-color: white !important; /* Add white background */
+    padding: 2px 5px; /* Optional: Adds some spacing around the text */
+    border-radius: 3px; /* Optional: Rounds the corners for a smoother look */
+    transition: all 0.3s ease; /* Smooth transition effect */
+}
+#myName {
+    background-color: white; /* White background */
+    color: black; /* Black text */
+    display: inline-block; /* Ensures background applies only to the text */
+    padding: 5px 10px; /* Adds spacing for better appearance */
+    border-radius: 5px; /* Optional: Adds rounded corners */
+    transition: all 0.3s ease; /* Smooth effect */
+}
 
 blockquote, q {
 	quotes: none;

@@ -1,9 +1,5 @@
 <!DOCTYPE HTML>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 	<head>
 		<title>MYCV_Kidus' portfolio</title>
@@ -11,6 +7,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<script type="module"> 
+			import pdfjsDist from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/+esm'
+		</script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+
+
 		<style>
 			#mycv{
 				width:100%;
@@ -24,12 +29,63 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo"><strong>Selam!</strong> <span>Enjoy your stay :)</span></a>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+				<header id="header">
+					<a href="index.html" class="logo">
+						<strong id="greeting">Selam!</strong> 
+						<span>Enjoy your stay :)</span>
+					</a>
+					<nav>
+						<a href="#menu">Menu</a>
+					</nav>
+				</header>
+
+				<script>
+					document.addEventListener("DOMContentLoaded", function () {
+						const greetings = [
+							"Selam!",  // Amharic
+							"Hello!",  // English
+							"Hola!",   // Spanish
+							"Bonjour!", // French
+							"Hallo!",  // German
+							"Ciao!",   // Italian
+							"नमस्ते!", // Hindi
+							"こんにちは!", // Japanese
+							"안녕하세요!", // Korean
+							"Привет!", // Russian
+							"Merhaba!", // Turkish
+							"你好!"     // Chinese
+						];
+				
+						let index = 0;
+						const greetingElement = document.getElementById("greeting");
+				
+						function changeGreeting() {
+							greetingElement.style.opacity = 0; // Fade out
+							setTimeout(() => {
+								index = (index + 1) % greetings.length; // Loop through greetings
+								greetingElement.textContent = greetings[index];
+								greetingElement.style.opacity = 1; // Fade in
+							}, 500);
+						}
+				
+						setInterval(changeGreeting, 2700); // Change every 2.5 seconds
+					});
+				</script>
+
+				<style>
+					@keyframes changeGreeting {
+						0% { opacity: 1; transform: translateY(0); }
+						25% { opacity: 0; transform: translateY(-20px); } /* Move up & fade out */
+						50% { opacity: 0; transform: translateY(20px); }  /* Move down */
+						75% { opacity: 1; transform: translateY(0); }     /* Fade in */
+						100% { opacity: 1; transform: translateY(0); }
+					}
+
+					#greeting {
+						display: inline-block;
+						animation: changeGreeting 3s infinite;
+					}
+				</style>
 
 				<!-- Menu -->
 					<nav id="menu">
@@ -49,18 +105,31 @@
 					<div id="main" class="alt">
 
 						<!-- One -->
-							<section id="one">
-								<div class="inner">
-									<header class="major">
-										<h1>My Curriculum Vitae</h1>
-										<h4><a href="https://drive.google.com/file/d/1zluZ4jAf9H2vM5uao8ZYEbZTUjgiPNmk/view?usp=sharing" target="_blank">Click here if document does not show</a> </h4>
-									</header>
-									<iframe id = "mycv" src = "https://drive.google.com/file/d/1zluZ4jAf9H2vM5uao8ZYEbZTUjgiPNmk/view?usp=sharing" framevorder = "0"> </iframe>
+						<section id="one">
+							<div class="inner">
+								<header class="major">
+									<h1>My Curriculum Vitae</h1>
+									<h4>
+										<a href="https://drive.google.com/file/d/1QAtsHmXckesHNmgOK-Cisul3X8gg7P6Y/preview" target="_blank">
+											Click here if document does not show
+										</a>
+									</h4>
+								</header>
+						
+								<!-- Corrected Embed Link -->
+								<iframe 
+									id="mycv" 
+									src="https://drive.google.com/file/d/1QAtsHmXckesHNmgOK-Cisul3X8gg7P6Y/preview" 
 									
-								</div>
-							</section>
+									width="794px" 
+            						height="1123px" 
+									frameborder="0">
+								</iframe>
+							</div>
+						</section>
 
 					</div>
+
 
 				<!-- Contact -->
 				<section id="contact">
@@ -131,6 +200,7 @@
 				</footer>
 
 			</div>
+			<div id="pdfViewerDiv"></div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -140,6 +210,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/generic.js"></script>
 
 	</body>
 </html>
