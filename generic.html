@@ -54,33 +54,20 @@
 						const greetingElement = document.getElementById("greeting");
 				
 						function changeGreeting() {
-							greetingElement.style.opacity = 0; // Fade out
-							setTimeout(() => {
-								index = (index + 1) % greetings.length; // Loop through greetings
-								greetingElement.textContent = greetings[index];
-								greetingElement.style.opacity = 1; // Fade in
-							}, 500);
+							index = (index + 1) % greetings.length;
+							greetingElement.textContent = greetings[index];
 						}
 				
-						setInterval(changeGreeting, 2700); // Change every 2.5 seconds
+						setInterval(changeGreeting, 2700); // Change every 2.7 seconds
 					});
 				</script>
-
+				
 				<style>
-					@keyframes changeGreeting {
-						0% { opacity: 1; transform: translateY(0); }
-						25% { opacity: 0; transform: translateY(-20px); } /* Move up & fade out */
-						50% { opacity: 0; transform: translateY(20px); }  /* Move down */
-						75% { opacity: 1; transform: translateY(0); }     /* Fade in */
-						100% { opacity: 1; transform: translateY(0); }
-					}
-
 					#greeting {
 						display: inline-block;
-						animation: changeGreeting 3s infinite;
 					}
 				</style>
-
+				
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">
@@ -104,7 +91,7 @@
 								<header class="major">
 									<h1>My Curriculum Vitae</h1>
 									<h4>
-										<a href="https://drive.google.com/file/d/1QAtsHmXckesHNmgOK-Cisul3X8gg7P6Y/preview" target="_blank">
+										<a href="https://drive.google.com/file/d/16dil42cF_SUVubUXw5dWaw2MJ7-7PM0y/preview" target="_blank">
 											Click here if document does not show
 										</a>
 									</h4>
@@ -113,7 +100,7 @@
 								<!-- Corrected Embed Link -->
 								<iframe 
 									id="mycv" 
-									src="https://drive.google.com/file/d/1QAtsHmXckesHNmgOK-Cisul3X8gg7P6Y/preview" 
+									src="https://drive.google.com/file/d/16dil42cF_SUVubUXw5dWaw2MJ7-7PM0y/preview" 
 									
 									width="794px" 
             						height="1123px" 
