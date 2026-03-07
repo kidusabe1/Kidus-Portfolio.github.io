@@ -6,68 +6,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-
-		.timeline {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-        .timeline::before {
-            content: "";
-            position: absolute;
-            left: 20px;
-            top: 0;
-            width: 4px;
-            height: 100%;
-            background: #007bff;
-        }
-        .event {
-            background: white;
-            padding: 15px;
-            margin: 10px 0 10px 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-        .event::before {
-            content: "";
-            position: absolute;
-            left: -14px;
-            top: 15px;
-            width: 12px;
-            height: 12px;
-            background: #007bff;
-            border-radius: 50%;
-            border: 2px solid white;
-        }
-        .event img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-            border-radius: 8px;
-            margin-right: 15px;
-        }
-        .content {
-            flex: 1;
-        }
-        .year {
-            font-size: 0.8em;
-            font-weight: bold;
-            color: #007bff;
-        }
-        .title {
-            font-size: 1.1em;
-            font-weight: bold;
-            margin-top: 5px;
-			color: black;
-        }
-        .description {
-            color: #555;
-        }
-		</style>
 	</head>
 	<body class="is-preload">
 
@@ -84,41 +22,6 @@
 						<a href="#menu">Menu</a>
 					</nav>
 				</header>
-
-				<script>
-					document.addEventListener("DOMContentLoaded", function () {
-						const greetings = [
-							"Selam!",  // Amharic
-							"Hello!",  // English
-							"Hola!",   // Spanish
-							"Bonjour!", // French
-							"Hallo!",  // German
-							"Ciao!",   // Italian
-							"नमस्ते!", // Hindi
-							"こんにちは!", // Japanese
-							"안녕하세요!", // Korean
-							"Привет!", // Russian
-							"Merhaba!", // Turkish
-							"你好!"     // Chinese
-						];
-				
-						let index = 0;
-						const greetingElement = document.getElementById("greeting");
-				
-						function changeGreeting() {
-							index = (index + 1) % greetings.length;
-							greetingElement.textContent = greetings[index];
-						}
-				
-						setInterval(changeGreeting, 2700); // Change every 2.7 seconds
-					});
-				</script>
-				
-				<style>
-					#greeting {
-						display: inline-block;
-					}
-				</style>
 				
 				<!-- Menu -->
 					<nav id="menu">
@@ -133,6 +36,10 @@
 							<!--<li><a href="#" class="button fit">Log In</a></li>-->
 						</ul>
 						<ul class="actions stacked">
+							<li><a href="#blogs" class="button primary fit">Blogs</a></li>
+							<!--<li><a href="#" class="button fit">Log In</a></li>-->
+						</ul>
+						<ul class="actions stacked">
 							<li><a href="#pub" class="button primary fit" >Publications</a></li>
 							<!--<li><a href="#" class="button fit">Log In</a></li>-->
 						</ul>
@@ -141,7 +48,7 @@
 							<!--<li><a href="#" class="button fit">Log In</a></li>-->
 						</ul>
 						<ul class="actions stacked">
-							<li><a href="#work" class="button primary fit" id="extra" >Extra Curricular</a></li>
+							<li><a href="#extra" class="button primary fit">Extra Curricular</a></li>
 							<!--<li><a href="#" class="button fit">Log In</a></li>-->
 						</ul>
 						
@@ -169,82 +76,7 @@
 
 						<!-- One -->
 						 
-							<section id="one" class="tiles">
-								<article>
-									<span class="image">
-										<img src="images/llama.jpeg" alt="" />
-									</span>
-									<header class="major" >
-										<h3><a href="https://github.com/kidusabe1/Multilingual-Youtube-Video-Summarizer" class="link" target = "_blank">NLP Based Multilingual Video Summarizer</a></h3>
-										<p>Fine-tuned LLaMA3 and open-source language translators, summarizing YouTube videos in 200+
-											languages.</p>
-									</header>
-								</article>
-								<article>
-									<span class="image">
-										<img src="images/yolo.png" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="https://github.com/kidusabe1/Waste-Classifier" class="link" target = "_blank">Lightweight Waste Classifier using Nvidia Nanojet and YOLOv11</a></h3>
-										<p>Developed a waste classification system using NVIDIA NanoJet and YOLOv11, achieving 92% accuracy
-											with real-time processing under 50ms.
-										</p>
-									</header>
-								</article>
-
-
-								
-								
-								<article>
-									<span class="image">
-										<img src="images/anomaly.avif" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="https://github.com/kidusabe1/CCTV_Captioning" class="link" target = "_blank">CCTV Automated Anomaly Detection and Auto-Captioning</a></h3>
-										<p>Built Automated Anomaly Detection using C3D-v1.0 and a three-layer neural network, achieving
-											0.9602 Cap Score on the UCF-Crime dataset.</p>
-									</header>
-								</article>
-
-
-								
-								<article>
-									<span class="image">
-										<img src="images/pic04.jpg" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="https://github.com/kidusabe1/Micrograd-implementation-following-andrej-karparthy/blob/main/andre's%20tutorial%20implementation.ipynb" class="link" target = "_blank">Micrograd</a></h3>
-										<p>Micrograd is the Backbone of Backpropagation models.</p>
-									</header>
-								</article>
-								
-								<article>
-									<span class="image">
-										<img src="images/pic01.png" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="https://public.tableau.com/app/profile/kidus.abebe.mekonen/viz/ElectricVehicleDataAnalysis_17240895891830/EVProductAnalysis" class="link" target = "_blank">EV Vehicle Analysis</a></h3>
-										<p>A Tableau Project on various types of EVs in US</p>
-									</header>
-								</article>
-
-
-
-								<article>
-									<span class="image">
-										<img src="images/pic02.png" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="https://public.tableau.com/views/SalesDashboard_17118250039380/SalesDashboard?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link" class="link" target = "_blank">Sales-Dashboard</a></h3>
-										<p>Dynamic Supermarket Sales Analysis Dashboard using Tableau</p>
-									</header>
-								</article>
-
-
-
-								
-								
-							</section>
+							<section id="one" class="tiles" data-section="projects"></section>
 
 						<!-- Two -->
 							<section id="two">
@@ -261,93 +93,17 @@
 
 					</div>
 
-					<h2 style="text-align: center; padding-top:20px;" id="pub">Publications</h2>
-					<div class="timeline">
-						<div class="event">
-							<img src="images/elsevier.svg">
-							<div class="content">
-								<div class="year">February, 2025</div>
-								<div class="title">Published my Second Paper in Elsevier</div>
-								<p class="description">Unlocking the Power of Machine Learning in Big Data: A scoping Survey <br><a href="https://www.sciencedirect.com/science/article/pii/S2666764925000104?via%3Dihub" target="blank"> Read</a></p>
-							</div>
-						</div>
-						<div class="event">
-							<img src="images/IEEE.png" alt="FarmLabo Project">
-							<div class="content">
-								<div class="year">January, 2025</div>
-								<div class="title">Became an IEEE Member</div>
-								<!-- <p class="description">T</p> -->
-							</div>
-						</div>	
-						<div class="event">
-							<img src="images/IEEE.png">
-							<div class="content">
-								<div class="year">March, 2024</div>
-								<div class="title">Published my First Paper in IEEE</div>
-								<p class="description">Privacy and Security Concerns in Generative AI: A Comprehensive Survey<br><a href="https://ieeexplore.ieee.org/document/10478883" target="blank"> Read</a></p>
-							</div>
-						</div>			
-					</div>
-				
-				
-					<h2 style="text-align: center; padding-top:20px;" id="work">Work Experience and Internships</h2>
-					<div class="timeline">
-						<div class="event">
-							<img src="images/HighRadius.svg">
-							<div class="content">
-								<div class="year">May, 2024 - July, 2024</div>
-								<div class="title">Highradius Automated Finances</div>
-								<p class="description"> As an <span style="font-weight: bold;">intern IT Consultant</span>, I designed and implemented automated ETL pipelines, increasing data processing efficiency by <span style="font-weight: bold;">60%</span>, while also building sustainable and scalable solutions using AWS, SQL, and other database technologies.<br><a href="https://www.highradius.com/" target="_blank">Visit</a></p>
-							</div>
-						</div>
-						<div class="event">
-							<img src="images/bits.webp">
-							<div class="content">
-								<div class="year">May, 2023 - November, 2023</div>
-								<div class="title">Birla Institute of Industrial Technology</div>
-								<p class="description"> As a <span style="font-weight: bold;">Generative AI Research Intern</span>, I authored and published a research paper titled "Privacy and Security Concerns in Generative AI," proposing strategies to mitigate privacy and security risks in AI-driven technologies.<br><a href="https://www.bits-pilani.ac.in/" target="_blank">Visit</a></p>
-							</div>
-						</div>
-						<div class="event">
-							<img src="images/UCMAS.avif">
-							<div class="content">
-								<div class="year">October, 2023 - February, 2024</div>
-								<div class="title">Universal Concept of Mental Arithmetic System | UCMAS</div>
-								<p class="description"> As a <span style="font-weight: bold;">Marketing Associate</span>, I spearheaded social media analytics tracking, optimizing post performance and increasing reach by 35% within three months. Additionally, I implemented innovative marketing strategies that led to a 30% increase in lead generation for the organization.<br><a href="https://www.ucmasodisha.in/" target="_blank">Visit</a></p>
-							</div>
-						</div>
-					</div>
+					<h2 class="section-heading" id="pub">Publications</h2>
+					<div class="timeline" data-section="publications"></div>
 
-					
-					<h2 style="text-align: center; padding-top:20px;" id="extra">Extra Curricular Activities</h2>
-					<div class="timeline">
-						<div class="event">
-							<img src="images/blood bank.jpg">
-							<div class="content">
-								<div class="year">February, 2017 - July, 2020</div>
-								<div class="title">Blood Donation Camp Organizer</div>
-								<p class="description">coordinated with the center to organize tri-monthly blood donation camps in my high school and neighborhood, leading a team of student volunteers to promote the initiative within the school and the community.</p>
-							</div>
-						</div>
-						<div class="event">
-							<img src="images/PSE.png" alt="FarmLabo Project">
-							<div class="content">
-								<div class="year"> March, 2017 - June, 2020</div>
-								<div class="title">Community School English Teacher</div>
-								<p class="description">Volunteered to teach underprivileged children (ages 8 to 17) with limited English proficiency.
-								</p>
-							</div>
-						</div>
+					<h2 class="section-heading" id="work">Work Experience and Internships</h2>
+					<div class="timeline" data-section="workExperience"></div>
 
-						<div class="event">
-							<img src="images/AISOC.png" alt="FarmLabo Project">
-							<div class="content">
-								<div class="year">April, 2023 - March, 2024</div>
-								<div class="title">KIIT University AI Society Core Member</div>
-								<p class="description">I collaborated with AI researchers ranked among the top 2% globally to organize events, workshops, and initiatives focused on AI, fostering a community of learners and professionals. Additionally, I contributed to advancing and promoting artificial intelligence research and education at KIIT University through active participation in a non-profit organization.								</p>
-							</div>
-						</div>
-					</div>
+					<h2 class="section-heading" id="blogs">Blogs</h2>
+					<section class="blog-grid" data-section="blogs"></section>
+
+					<h2 class="section-heading" id="extra">Extra Curricular Activities</h2>
+					<div class="timeline" data-section="extraCurricular"></div>
 				<!-- Contact -->
 					<section id="contact">
 						<div class="inner">
@@ -425,7 +181,10 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
+			<script src="assets/js/content-data.js"></script>
+			<script src="assets/js/content-renderer.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/shared.js"></script>
 
 	</body>
 </html>

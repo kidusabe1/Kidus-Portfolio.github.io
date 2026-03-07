@@ -32,41 +32,6 @@
 						<a href="#menu">Menu</a>
 					</nav>
 				</header>
-
-				<script>
-					document.addEventListener("DOMContentLoaded", function () {
-						const greetings = [
-							"Selam!",  // Amharic
-							"Hello!",  // English
-							"Hola!",   // Spanish
-							"Bonjour!", // French
-							"Hallo!",  // German
-							"Ciao!",   // Italian
-							"नमस्ते!", // Hindi
-							"こんにちは!", // Japanese
-							"안녕하세요!", // Korean
-							"Привет!", // Russian
-							"Merhaba!", // Turkish
-							"你好!"     // Chinese
-						];
-				
-						let index = 0;
-						const greetingElement = document.getElementById("greeting");
-				
-						function changeGreeting() {
-							index = (index + 1) % greetings.length;
-							greetingElement.textContent = greetings[index];
-						}
-				
-						setInterval(changeGreeting, 2700); // Change every 2.7 seconds
-					});
-				</script>
-				
-				<style>
-					#greeting {
-						display: inline-block;
-					}
-				</style>
 				
 				<!-- Menu -->
 					<nav id="menu">
@@ -190,6 +155,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/shared.js"></script>
 
 	</body>
 </html>
