@@ -86,7 +86,7 @@ export const portfolioData = {
 
   projects: [
     {
-      title: 'PD-GPT: Parkinson\'s Disease Monitor',
+      title: 'PD-GPT: Parkinson\'s Disease Monitoring System',
       image: 'images/pic04.jpg',
       link: 'https://github.com/kidusabe1',
       description:
