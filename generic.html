@@ -5,19 +5,13 @@
 		<title>MYCV_Kidus' portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-
-
-
-		<style>
-			#mycv{
-				width:100%;
-				height:975px;
-			}
-		</style>
 	</head>
-	<body class="is-preload">
+	<body class="is-preload cv-page">
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -55,22 +49,25 @@
 							<div class="inner">
 								<header class="major">
 									<h1>My Curriculum Vitae</h1>
-									<h4>
-										<a href="https://drive.google.com/file/d/16dil42cF_SUVubUXw5dWaw2MJ7-7PM0y/preview" target="_blank">
-											Click here if document does not show
-										</a>
-									</h4>
+									<p>Modern in-page preview with quick open and download actions.</p>
 								</header>
-						
-								<!-- Corrected Embed Link -->
-								<iframe 
-									id="mycv" 
-									src="https://drive.google.com/file/d/16dil42cF_SUVubUXw5dWaw2MJ7-7PM0y/preview" 
-									
-									width="794px" 
-            						height="1123px" 
-									frameborder="0">
-								</iframe>
+
+								<div class="cv-actions">
+									<a href="myCV.pdf" target="_blank" rel="noopener noreferrer" class="button primary">Open in New Tab</a>
+									<a href="myCV.pdf" download class="button">Download PDF</a>
+								</div>
+
+								<div class="cv-viewer-shell">
+									<div class="cv-status" id="cvStatus">Loading CV preview…</div>
+									<iframe
+										id="mycv"
+										src="myCV.pdf#view=FitH"
+										title="Kidus CV PDF Preview"
+										loading="lazy">
+									</iframe>
+								</div>
+
+								<p class="cv-fallback">If preview does not appear, use <a href="myCV.pdf" target="_blank" rel="noopener noreferrer">Open in New Tab</a>.</p>
 							</div>
 						</section>
 
@@ -155,6 +152,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/generic.js"></script>
 			<script src="assets/js/shared.js"></script>
 
 	</body>
