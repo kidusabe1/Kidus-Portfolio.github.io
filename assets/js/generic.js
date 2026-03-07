@@ -8,12 +8,12 @@
     }
 
     var loadingTimer = setTimeout(function () {
-      status.textContent = 'Still loading… if your browser blocks previews, use Open in New Tab.';
+      status.textContent = 'Still loading... if your browser blocks previews, use Open in New Tab.';
     }, 3500);
 
     frame.addEventListener('load', function () {
       clearTimeout(loadingTimer);
-      status.textContent = 'Preview loaded';
+      status.textContent = 'Preview loaded. If blank, please use Open in New Tab.';
       status.classList.add('is-ready');
     });
 
