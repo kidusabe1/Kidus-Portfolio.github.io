@@ -2,20 +2,20 @@ export const portfolioData = {
   personal: {
     name: 'Kidus',
     fullName: 'Kidus Abebe Mekonen',
-    tagline: 'AI Engineer • Data Scientist • Researcher',
-    headline: 'I build useful AI products.',
+    tagline: 'Researcher • Data Scientist • Neuro-AI Engineer',
+    headline: 'I bridge neuroscience and AI.',
     description:
-      'I design practical machine learning systems with measurable outcomes — from multilingual NLP products to edge AI deployments and applied research.',
+      'I integrate advanced machine learning models with neuroscientific data to yield analytical and clinical insights — specializing in neuro-data science, neural interfaces, and healthcare AI.',
     highlights: [
-      'Published in IEEE & Elsevier',
-      'Built and deployed real-time AI systems',
-      'Focused on health and education impact',
+      'Published in IEEE Access & Data Science and Management',
+      'MSc NeuroData (Erasmus Mundus) at Bar-Ilan University',
+      'Focused on neural decoding & healthcare AI',
     ],
     about:
-      "I'm a final-year Artificial Intelligence student focused on solving real-world problems with machine learning and data-driven systems. I care deeply about building technology that can improve public health and education, and I'm currently on an exchange semester in South Korea while expanding my cross-disciplinary AI work.",
+      "I'm a researcher and data scientist specializing in neuro-data science, neural interfaces, and healthcare artificial intelligence. My work focuses on integrating advanced machine learning models with neuroscientific data to generate analytical and clinical insights. I hold an Erasmus Mundus Joint Master's in NeuroData from Bar-Ilan University, Israel, with research in Neural Manifolds, Spiking Neural Networks, and Graph Neural Wavelet Transforms, and a B.Tech in Information Technology from KIIT, India.",
     email: 'kidusabebe1921@gmail.com',
     phone: '+918984937192',
-    address: 'Building 2 Chungnam National University, Daejeon, South Korea',
+    address: 'Bar-Ilan University, Ramat Gan, Israel',
     cvUrl: 'myCV.pdf',
     social: {
       github: 'https://github.com/kidusabe1',
@@ -27,7 +27,80 @@ export const portfolioData = {
     },
   },
 
+  education: [
+    {
+      degree: 'Master of Science, NeuroData',
+      program: 'Erasmus Mundus Joint Master Degree',
+      institution: 'Bar-Ilan University',
+      location: 'Israel',
+      description:
+        'Research emphasis on Neural Manifolds, Spiking Neural Networks (SNNs), and Graph Neural Wavelet Transforms (GNWT).',
+    },
+    {
+      degree: 'Bachelor of Technology, Information Technology',
+      institution: 'Kalinga Institute of Industrial Technology (KIIT)',
+      location: 'India',
+      period: 'Graduated 2025',
+      description:
+        'Graduated with a strong foundation in software engineering, data structures, and applied machine learning.',
+    },
+  ],
+
+  skills: {
+    'Machine Learning & Data Science': [
+      'Python',
+      'PyTorch',
+      'TensorFlow',
+      'MATLAB',
+      'Scikit-learn',
+      'Pandas',
+      'OpenCV',
+    ],
+    'Software Development': ['C++', 'C', 'React', 'Next.js', 'HTML', 'CSS'],
+    'Database Management': ['PostgreSQL', 'MySQL', 'MongoDB'],
+    'DevOps & Environment': ['Git', 'Docker', 'Linux', 'Anaconda'],
+  },
+
+  interests: [
+    {
+      title: 'Neuroinformatics & Clinical AI',
+      description:
+        'Intersection of machine learning and neurological data, including predictive and monitoring applications for neurodegenerative conditions and EEG signal processing for neural decoding.',
+    },
+    {
+      title: 'Advanced Neural Architectures',
+      description:
+        'Engineering and theoretical exploration of Transformers, Generative Adversarial Networks (GANs), and Spiking Neural Networks (SNNs).',
+    },
+    {
+      title: 'Algorithmic Interpretability & Security',
+      description:
+        'Evaluating model transparency using frameworks like SHAP, and assessing data privacy and architectural vulnerabilities in Generative AI ecosystems.',
+    },
+    {
+      title: 'Applied ML & Data Systems',
+      description:
+        'Deployment of ML algorithms for large-scale data analysis, incorporating computer vision and NLP for classification, detection, and automated summarization.',
+    },
+  ],
+
   projects: [
+    {
+      title: 'PD-GPT: Parkinson\'s Disease Monitor',
+      image: 'images/pic04.jpg',
+      link: 'https://github.com/kidusabe1',
+      description:
+        'Specialized application for continuous monitoring of Parkinson\'s Disease patients, utilizing AI to track progression and enhance patient management.',
+      tags: ['Healthcare AI', 'NLP', 'Patient Monitoring'],
+    },
+    {
+      title: 'EEG Signal Processing & Neural Decoding',
+      image: 'images/pic04.jpg',
+      link: 'https://github.com/kidusabe1',
+      description:
+        'Classification systems for imagined speech and neural data using advanced architectures such as LFADS, FAST, and TSCeption.',
+      tags: ['EEG', 'Neural Decoding', 'SNNs'],
+    },
     {
       title: 'NLP Based Multilingual Video Summarizer',
       image: 'images/llama.jpeg',
@@ -79,9 +152,9 @@ export const portfolioData = {
 
   publications: [
     {
-      year: 'Feb 2025',
-      title: 'Published in Elsevier',
-      venue: 'Elsevier',
+      year: '2025',
+      title: 'Published in Data Science and Management',
+      venue: 'Data Science and Management',
       paper:
         'Unlocking the Power of Machine Learning in Big Data: A Scoping Survey',
       link: 'https://www.sciencedirect.com/science/article/pii/S2666764925000104?via%3Dihub',
@@ -94,9 +167,9 @@ export const portfolioData = {
       image: 'images/IEEE.png',
     },
     {
-      year: 'Mar 2024',
-      title: 'Published in IEEE',
-      venue: 'IEEE',
+      year: '2024',
+      title: 'Published in IEEE Access',
+      venue: 'IEEE Access',
       paper:
         'Privacy and Security Concerns in Generative AI: A Comprehensive Survey',
       link: 'https://ieeexplore.ieee.org/document/10478883',
