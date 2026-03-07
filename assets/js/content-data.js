@@ -28,13 +28,13 @@ window.PORTFOLIO_CONTENT = {
       title: 'EV Vehicle Analysis',
       image: 'images/pic01.png',
       link: 'https://public.tableau.com/app/profile/kidus.abebe.mekonen/viz/ElectricVehicleDataAnalysis_17240895891830/EVProductAnalysis',
-      description: 'A Tableau project on various types of EVs in US.'
+      description: 'A Tableau project on various types of EVs in the US.'
     },
     {
       title: 'Sales Dashboard',
       image: 'images/pic02.png',
       link: 'https://public.tableau.com/views/SalesDashboard_17118250039380/SalesDashboard?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link',
-      description: 'Dynamic supermarket sales analysis dashboard using Tableau.'
+      description: 'Dynamic Supermarket Sales Analysis Dashboard using Tableau.'
     }
   ],
   publications: [
@@ -81,7 +81,7 @@ window.PORTFOLIO_CONTENT = {
       image: 'images/UCMAS.avif',
       year: 'October, 2023 - February, 2024',
       title: 'Universal Concept of Mental Arithmetic System | UCMAS',
-      description: 'As a Marketing Associate, I spearheaded social media analytics tracking, optimizing post performance and increasing reach by 35% within three months.',
+      description: 'As a Marketing Associate, I spearheaded social media analytics tracking, optimizing post performance and increasing reach by 35% within three months. Additionally, I implemented innovative marketing strategies that led to a 30% increase in lead generation for the organization.',
       link: 'https://www.ucmasodisha.in/',
       cta: 'Visit'
     }
@@ -111,7 +111,7 @@ window.PORTFOLIO_CONTENT = {
       image: 'images/blood bank.jpg',
       year: 'February, 2017 - July, 2020',
       title: 'Blood Donation Camp Organizer',
-      description: 'Coordinated with local centers to organize tri-monthly blood donation camps in my high school and neighborhood.'
+      description: 'Coordinated with local centers to organize tri-monthly blood donation camps in my high school and neighborhood, leading a team of student volunteers to promote the initiative within the school and the community.'
     },
     {
       image: 'images/PSE.png',
@@ -123,7 +123,7 @@ window.PORTFOLIO_CONTENT = {
       image: 'images/AISOC.png',
       year: 'April, 2023 - March, 2024',
       title: 'KIIT University AI Society Core Member',
-      description: 'Collaborated with top AI researchers to organize events, workshops, and initiatives focused on AI education and community building.'
+      description: 'I collaborated with AI researchers ranked among the top 2% globally to organize events, workshops, and initiatives focused on AI, fostering a community of learners and professionals. Additionally, I contributed to advancing and promoting artificial intelligence research and education at KIIT University through active participation in a non-profit organization.'
     }
   ]
 };
