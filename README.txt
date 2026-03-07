@@ -2,7 +2,7 @@ Kidus Portfolio
 
 Deployment notes
 
-- Live site URL: https://kidusabe1.github.io/Kidus-Portfolio.github.io/
+- Live site URL: https://kidusabe1.github.io/
 - You can also see the latest deployed URL in GitHub under **Actions** → latest **Deploy to GitHub Pages** run → `deploy` job (environment `github-pages`).
 - Multiple deployments are expected: every push to `main` triggers a new deployment, and `workflow_dispatch` allows manual deployments too.
 
