@@ -5,4 +5,3 @@ dist/
 .env
 .env.local
 .vite/
-package-lock.json
