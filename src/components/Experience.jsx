@@ -25,12 +25,12 @@ function ExperienceCard({ exp, index }) {
             loading="lazy"
           />
         ) : (
-          <div className="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center shrink-0">
-            <Briefcase size={20} className="text-indigo-400" />
+          <div className="w-12 h-12 rounded-lg bg-white/8 flex items-center justify-center shrink-0">
+            <Briefcase size={20} className="text-gray-400" />
           </div>
         )}
         <div className="flex-1">
-          <span className="text-xs text-indigo-400 font-mono">
+          <span className="text-xs text-gray-500 font-mono">
             {exp.period}
           </span>
           <h3 className="text-lg font-semibold text-white mt-1">
@@ -47,7 +47,7 @@ function ExperienceCard({ exp, index }) {
           href={exp.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-sm text-indigo-400 hover:text-indigo-300 transition-colors"
+          className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors"
         >
           Visit Company <ExternalLink size={14} />
         </a>

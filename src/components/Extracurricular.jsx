@@ -24,7 +24,7 @@ function ActivityCard({ activity, index }) {
         />
       )}
       <div>
-        <span className="text-xs text-indigo-400 font-mono">
+        <span className="text-xs text-gray-500 font-mono">
           {activity.period}
         </span>
         <h3 className="text-base font-semibold text-white mt-1">

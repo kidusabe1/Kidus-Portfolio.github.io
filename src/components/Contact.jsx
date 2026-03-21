@@ -17,13 +17,13 @@ export default function Contact() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-indigo-400 text-sm font-medium mb-2">
+          <p className="text-gray-500 text-sm font-medium mb-2">
             Get in touch
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Let&apos;s Connect
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-cyan-400 rounded-full mb-12" />
+          <div className="w-16 h-px bg-white/20 mb-12" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* Contact Form */}
@@ -44,7 +44,7 @@ export default function Contact() {
                   type="text"
                   id="name"
                   name="name"
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-all"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/20 transition-all"
                   placeholder="Your name"
                 />
               </div>
@@ -59,7 +59,7 @@ export default function Contact() {
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-all"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/20 transition-all"
                   placeholder="you@example.com"
                 />
               </div>
@@ -74,13 +74,13 @@ export default function Contact() {
                   id="message"
                   name="message"
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/20 transition-all resize-none"
                   placeholder="Your message..."
                 />
               </div>
               <button
                 type="submit"
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-all duration-200 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-gray-100 text-black font-medium transition-all duration-200"
               >
                 <Send size={18} />
                 Send Message
@@ -109,7 +109,7 @@ export default function Contact() {
 
               {/* Social links */}
               <div className="mt-4 pt-6 border-t border-white/10">
-                <p className="text-sm text-gray-400 mb-4">Find me online</p>
+                <p className="text-sm text-gray-500 mb-4">Find me online</p>
                 <div className="flex gap-3">
                   {Object.entries(personal.social).map(([platform, url]) => (
                     <a
@@ -117,7 +117,7 @@ export default function Contact() {
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-200"
+                      className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:bg-white/10 transition-all duration-200"
                       aria-label={platform}
                     >
                       <SocialIcon platform={platform} />
@@ -144,12 +144,12 @@ function ContactInfo({ icon, label, value, href }) {
       {...props}
       className="flex items-start gap-4 group"
     >
-      <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 shrink-0 group-hover:bg-indigo-500/20 transition-colors">
+      <div className="w-10 h-10 rounded-xl bg-white/8 flex items-center justify-center text-gray-400 shrink-0 group-hover:bg-white/12 transition-colors">
         {icon}
       </div>
       <div>
-        <p className="text-sm text-gray-400">{label}</p>
-        <p className="text-white group-hover:text-indigo-400 transition-colors">
+        <p className="text-sm text-gray-500">{label}</p>
+        <p className="text-white group-hover:text-gray-300 transition-colors">
           {value}
         </p>
       </div>

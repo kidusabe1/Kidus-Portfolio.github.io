@@ -18,14 +18,14 @@ function PublicationCard({ pub, index }) {
     >
       {/* Timeline */}
       <div className="flex flex-col items-center">
-        <div className="w-3 h-3 rounded-full bg-indigo-500 ring-4 ring-indigo-500/20 shrink-0 mt-1.5" />
+        <div className="w-3 h-3 rounded-full bg-white/60 ring-4 ring-white/10 shrink-0 mt-1.5" />
         {index < portfolioData.publications.length - 1 && (
-          <div className="w-px flex-1 bg-gradient-to-b from-indigo-500/30 to-transparent mt-2" />
+          <div className="w-px flex-1 bg-gradient-to-b from-white/20 to-transparent mt-2" />
         )}
       </div>
 
       {/* Content */}
-      <div className="glass-card rounded-2xl p-6 mb-6 flex-1 group-hover:border-indigo-500/20 transition-all duration-300">
+      <div className="glass-card rounded-2xl p-6 mb-6 flex-1 group-hover:border-white/12 transition-all duration-300">
         <div className="flex items-start gap-4">
           {pub.image && (
             <img
@@ -36,7 +36,7 @@ function PublicationCard({ pub, index }) {
             />
           )}
           <div className="flex-1">
-            <span className="text-xs text-indigo-400 font-mono">{pub.year}</span>
+            <span className="text-xs text-gray-500 font-mono">{pub.year}</span>
             <h3 className="text-lg font-semibold text-white mt-1">
               {pub.title}
             </h3>
@@ -50,7 +50,7 @@ function PublicationCard({ pub, index }) {
                 href={pub.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-indigo-400 hover:text-indigo-300 mt-3 transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-white mt-3 transition-colors"
               >
                 Read Paper <ExternalLink size={14} />
               </a>

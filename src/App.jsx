@@ -9,6 +9,7 @@ import Publications from './components/Publications';
 import Experience from './components/Experience';
 import Blogs from './components/Blogs';
 import Extracurricular from './components/Extracurricular';
+import Books from './components/Books';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -27,6 +28,7 @@ export default function App() {
         <Experience />
         <Blogs />
         <Extracurricular />
+        <Books />
         <Contact />
       </main>
       <Footer />

@@ -7,9 +7,9 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
-      {/* Gradient orbs */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-indigo-600/20 rounded-full blur-[128px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-cyan-500/15 rounded-full blur-[128px] pointer-events-none" />
+      {/* Subtle monochrome gradient orbs */}
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-white/[0.03] rounded-full blur-[128px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-white/[0.025] rounded-full blur-[128px] pointer-events-none" />
 
       <div className="relative max-w-4xl mx-auto px-6 text-center pt-24 pb-20">
         {/* Tag */}
@@ -17,9 +17,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-medium mb-8"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 text-sm font-medium mb-8"
         >
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
           {personal.tagline}
         </motion.div>
 
@@ -72,7 +72,7 @@ export default function Hero() {
         >
           <a
             href="#projects"
-            className="px-8 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-all duration-200 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40"
+            className="px-8 py-3 rounded-full bg-white hover:bg-gray-100 text-black font-medium transition-all duration-200"
           >
             View Projects
           </a>
@@ -98,7 +98,7 @@ export default function Hero() {
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
           >
-            <ArrowDown className="text-gray-500" size={20} />
+            <ArrowDown className="text-gray-600" size={20} />
           </motion.div>
         </motion.div>
       </div>

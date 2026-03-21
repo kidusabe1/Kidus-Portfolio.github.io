@@ -26,16 +26,16 @@ function BlogCard({ blog, index }) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group glass-card glow-border rounded-2xl p-6 block hover:bg-white/[0.02] transition-all duration-300"
     >
-      <div className="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-4 group-hover:bg-indigo-500/20 transition-colors">
-        <Icon size={22} className="text-indigo-400" />
+      <div className="w-12 h-12 rounded-xl bg-white/8 flex items-center justify-center mb-4 group-hover:bg-white/12 transition-colors">
+        <Icon size={22} className="text-gray-400" />
       </div>
-      <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-indigo-400 transition-colors">
+      <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-gray-200 transition-colors">
         {blog.title}
       </h3>
       <p className="text-sm text-gray-400 leading-relaxed mb-4">
         {blog.description}
       </p>
-      <span className="inline-flex items-center gap-1.5 text-sm text-indigo-400 font-medium group-hover:gap-2.5 transition-all">
+      <span className="inline-flex items-center gap-1.5 text-sm text-gray-400 font-medium group-hover:text-white group-hover:gap-2.5 transition-all">
         {blog.cta} <ExternalLink size={14} />
       </span>
     </motion.a>

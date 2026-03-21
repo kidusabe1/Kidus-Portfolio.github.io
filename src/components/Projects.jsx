@@ -26,7 +26,7 @@ function ProjectCard({ project, index }) {
           loading="lazy"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#16162a] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
         <div className="absolute top-3 right-3 p-2 rounded-full bg-white/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <ExternalLink size={14} className="text-white" />
         </div>
@@ -34,7 +34,7 @@ function ProjectCard({ project, index }) {
 
       {/* Content */}
       <div className="p-5">
-        <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-indigo-400 transition-colors duration-200">
+        <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-gray-300 transition-colors duration-200">
           {project.title}
         </h3>
         <p className="text-sm text-gray-400 leading-relaxed mb-4">
@@ -44,7 +44,7 @@ function ProjectCard({ project, index }) {
           {project.tags.map((tag, i) => (
             <span
               key={i}
-              className="px-2.5 py-0.5 text-xs rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20"
+              className="px-2.5 py-0.5 text-xs rounded-full bg-white/8 text-gray-400 border border-white/10"
             >
               {tag}
             </span>
@@ -82,9 +82,9 @@ function SectionHeader({ title, subtitle }) {
       transition={{ duration: 0.5 }}
       className="mb-12"
     >
-      <p className="text-indigo-400 text-sm font-medium mb-2">{subtitle}</p>
+      <p className="text-gray-500 text-sm font-medium mb-2">{subtitle}</p>
       <h2 className="text-3xl md:text-4xl font-bold text-white">{title}</h2>
-      <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-cyan-400 rounded-full mt-4" />
+      <div className="w-16 h-px bg-white/20 mt-4" />
     </motion.div>
   );
 }

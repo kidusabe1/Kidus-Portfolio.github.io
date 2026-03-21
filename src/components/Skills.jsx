@@ -20,7 +20,7 @@ function SkillCategory({ category, skills, index }) {
         {skills.map((skill, i) => (
           <span
             key={i}
-            className="px-3 py-1.5 text-sm rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20"
+            className="px-3 py-1.5 text-sm rounded-full bg-white/8 text-gray-300 border border-white/10"
           >
             {skill}
           </span>

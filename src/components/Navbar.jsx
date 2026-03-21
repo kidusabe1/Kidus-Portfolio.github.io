@@ -8,6 +8,7 @@ const navLinks = [
   { label: 'Projects', href: '#projects' },
   { label: 'Publications', href: '#publications' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Books', href: '#books' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -28,7 +29,7 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/5'
+          ? 'bg-[#0a0a0a]/85 backdrop-blur-xl border-b border-white/5'
           : 'bg-transparent'
       }`}
     >
@@ -52,7 +53,7 @@ export default function Navbar() {
             href="myCV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm px-4 py-2 rounded-full border border-indigo-500/50 text-indigo-400 hover:bg-indigo-500/10 transition-all duration-200"
+            className="text-sm px-4 py-2 rounded-full border border-white/20 text-gray-300 hover:bg-white/5 hover:border-white/35 transition-all duration-200"
           >
             Resume
           </a>
@@ -92,7 +93,7 @@ export default function Navbar() {
                 href="myCV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm px-4 py-2 rounded-full border border-indigo-500/50 text-indigo-400 text-center"
+                className="text-sm px-4 py-2 rounded-full border border-white/20 text-gray-300 text-center"
               >
                 Resume
               </a>

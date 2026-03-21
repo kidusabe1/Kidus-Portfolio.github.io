@@ -19,10 +19,10 @@ export default function About() {
           className="glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden"
         >
           {/* Background accent */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-600/10 rounded-full blur-[80px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/[0.02] rounded-full blur-[80px] pointer-events-none" />
 
           <div className="relative">
-            <p className="text-indigo-400 text-sm font-medium mb-2">
+            <p className="text-gray-500 text-sm font-medium mb-2">
               Get to know me
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -42,7 +42,7 @@ export default function About() {
               </a>
               <a
                 href="#contact"
-                className="px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white transition-all duration-200 shadow-lg shadow-indigo-500/25"
+                className="px-6 py-3 rounded-full bg-white hover:bg-gray-100 text-black font-medium transition-all duration-200"
               >
                 Let&apos;s Connect
               </a>

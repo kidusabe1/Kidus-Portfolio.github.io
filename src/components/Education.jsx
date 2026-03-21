@@ -17,12 +17,12 @@ function EducationCard({ edu, index }) {
       className="glass-card glow-border rounded-2xl p-6 md:p-8"
     >
       <div className="flex items-start gap-4 mb-4">
-        <div className="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center shrink-0">
-          <GraduationCap size={22} className="text-indigo-400" />
+        <div className="w-12 h-12 rounded-lg bg-white/8 flex items-center justify-center shrink-0">
+          <GraduationCap size={22} className="text-gray-400" />
         </div>
         <div className="flex-1">
           {edu.period && (
-            <span className="text-xs text-indigo-400 font-mono">
+            <span className="text-xs text-gray-500 font-mono">
               {edu.period}
             </span>
           )}
@@ -30,9 +30,9 @@ function EducationCard({ edu, index }) {
             {edu.degree}
           </h3>
           {edu.program && (
-            <p className="text-sm text-cyan-400">{edu.program}</p>
+            <p className="text-sm text-gray-400">{edu.program}</p>
           )}
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-500">
             {edu.institution} — {edu.location}
           </p>
         </div>
