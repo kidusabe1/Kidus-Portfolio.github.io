@@ -42,7 +42,7 @@ export default function About() {
               </a>
               <a
                 href="#contact"
-                className="px-6 py-3 rounded-full bg-white hover:bg-gray-100 text-black font-medium transition-all duration-200"
+                className="px-6 py-3 rounded-full cta-btn font-medium transition-all duration-200"
               >
                 Let&apos;s Connect
               </a>

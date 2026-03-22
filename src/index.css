@@ -11,10 +11,8 @@
   --color-surface-card: #141414;
 }
 
-/* Base styles */
-html {
-  scroll-behavior: smooth;
-}
+/* ── Base ───────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-sans);
@@ -22,27 +20,16 @@ body {
   color: #e2e8f0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #444; }
 
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #444;
-}
-
-/* Gradient text utility — white to light gray */
+/* ── Custom utilities ───────────────────────────────────── */
 .gradient-text {
   background: linear-gradient(135deg, #ffffff, #9ca3af);
   -webkit-background-clip: text;
@@ -50,17 +37,14 @@ body {
   background-clip: text;
 }
 
-/* Glass card effect */
 .glass-card {
-  background: rgba(20, 20, 20, 0.8);
+  background: rgba(20, 20, 20, 0.80);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-/* Animated white border on hover */
-.glow-border {
-  position: relative;
-}
+.glow-border { position: relative; }
 .glow-border::before {
   content: '';
   position: absolute;
@@ -74,19 +58,15 @@ body {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-.glow-border:hover::before {
-  opacity: 1;
-}
+.glow-border:hover::before { opacity: 1; }
 
-/* Subtle white grid background pattern */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
-/* Noise texture overlay */
 .noise-overlay::after {
   content: '';
   position: fixed;
@@ -95,3 +75,84 @@ body {
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
+
+/* Primary CTA button — inverts between modes */
+.cta-btn {
+  background-color: #ffffff;
+  color: #000000;
+}
+.cta-btn:hover { background-color: #e5e5e5; }
+
+/* ══════════════════════════════════════════════════════════
+   LIGHT MODE  (.light on <html>)
+══════════════════════════════════════════════════════════ */
+
+.light body {
+  background-color: #f4f4f2;
+  color: #111111;
+}
+
+.light ::-webkit-scrollbar-track { background: #f4f4f2; }
+.light ::-webkit-scrollbar-thumb { background: #cccccc; }
+.light ::-webkit-scrollbar-thumb:hover { background: #aaaaaa; }
+
+.light .gradient-text {
+  background: linear-gradient(135deg, #111111, #555555);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.light .glass-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.light .glow-border::before {
+  background: linear-gradient(135deg, #444444, #888888, #444444);
+}
+
+.light .grid-bg {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+}
+
+/* Text */
+.light .text-white  { color: #0f0f0f; }
+.light .text-gray-200 { color: #1a1a1a; }
+.light .text-gray-300 { color: #2a2a2a; }
+.light .text-gray-400 { color: #4a4a4a; }
+.light .text-gray-500 { color: #6a6a6a; }
+.light .text-gray-600 { color: #888888; }
+
+/* Navbar backgrounds */
+.light .nav-scrolled  { background-color: rgba(244,244,242,0.88) !important; }
+.light .nav-mobile-bg { background-color: rgba(244,244,242,0.97) !important; }
+.light .nav-dropdown  { background-color: rgba(255,255,255,0.97) !important; }
+
+/* Borders — white/N → black/N */
+.light .border-white\/5  { border-color: rgba(0,0,0,0.04); }
+.light .border-white\/8  { border-color: rgba(0,0,0,0.06); }
+.light .border-white\/10 { border-color: rgba(0,0,0,0.08); }
+.light .border-white\/15 { border-color: rgba(0,0,0,0.10); }
+.light .border-white\/20 { border-color: rgba(0,0,0,0.12); }
+.light .border-white\/30 { border-color: rgba(0,0,0,0.16); }
+.light .border-t.border-white\/10 { border-color: rgba(0,0,0,0.08); }
+
+/* Small accent backgrounds (icon boxes, tags, etc.) */
+.light .bg-white\/5  { background-color: rgba(0,0,0,0.03); }
+.light .bg-white\/8  { background-color: rgba(0,0,0,0.05); }
+.light .bg-white\/10 { background-color: rgba(0,0,0,0.06); }
+.light .bg-white\/12 { background-color: rgba(0,0,0,0.07); }
+
+/* Publication timeline dot */
+.light .bg-white\/60 { background-color: rgba(0,0,0,0.45); }
+.light .ring-white\/10 { --tw-ring-color: rgba(0,0,0,0.08); }
+
+/* CTA button inverts */
+.light .cta-btn { background-color: #111111; color: #ffffff; }
+.light .cta-btn:hover { background-color: #333333; }
+
+/* Active year-tab button (Books) stays readable */
+.light button.bg-white.text-black { background-color: #111111; color: #ffffff; }

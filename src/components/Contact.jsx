@@ -80,7 +80,7 @@ export default function Contact() {
               </div>
               <button
                 type="submit"
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-gray-100 text-black font-medium transition-all duration-200"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl cta-btn font-medium transition-all duration-200"
               >
                 <Send size={18} />
                 Send Message
