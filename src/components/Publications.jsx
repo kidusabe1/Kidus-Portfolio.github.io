@@ -64,7 +64,7 @@ function PublicationCard({ pub, index }) {
 
 export default function Publications() {
   return (
-    <section id="publications" className="py-24 px-6">
+    <section id="publications" className="py-16 px-6">
       <div className="max-w-3xl mx-auto">
         <SectionHeader title="Publications" subtitle="Research & Papers" />
         <div>

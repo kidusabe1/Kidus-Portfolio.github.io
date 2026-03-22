@@ -9,7 +9,7 @@ export default function About() {
   const { personal } = portfolioData;
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-16 px-6">
       <div className="max-w-4xl mx-auto">
         <motion.div
           ref={ref}

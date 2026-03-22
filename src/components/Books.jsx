@@ -92,7 +92,7 @@ export default function Books() {
   const books = booksData[activeYear] ?? [];
 
   return (
-    <section id="books" className="py-24 px-6">
+    <section id="books" className="py-16 px-6">
       <div className="max-w-4xl mx-auto">
         <SectionHeader title="Books I Loved" subtitle="Reading list" />
 

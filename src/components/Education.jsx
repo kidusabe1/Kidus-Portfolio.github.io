@@ -46,7 +46,7 @@ function EducationCard({ edu, index }) {
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 px-6">
+    <section id="education" className="py-16 px-6">
       <div className="max-w-4xl mx-auto">
         <SectionHeader
           title="Education"

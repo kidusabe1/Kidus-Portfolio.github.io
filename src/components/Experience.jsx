@@ -58,7 +58,7 @@ function ExperienceCard({ exp, index }) {
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 px-6">
+    <section id="experience" className="py-16 px-6">
       <div className="max-w-4xl mx-auto">
         <SectionHeader
           title="Work Experience"
