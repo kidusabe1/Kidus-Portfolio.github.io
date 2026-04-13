@@ -27,7 +27,7 @@ function InterestCard({ interest, index }) {
 
 export default function Interests() {
   return (
-    <section id="interests" className="py-24 px-6">
+    <section id="interests" className="py-12 sm:py-16 md:py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <SectionHeader
           title="Research Interests"
