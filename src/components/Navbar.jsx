@@ -23,6 +23,12 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -33,7 +39,7 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="text-xl font-bold gradient-text">K.</a>
+        <a href="#" className="text-xl font-bold gradient-text" aria-label="Home">K.</a>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-7">
@@ -100,7 +106,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className="text-gray-400 hover:text-white transition-colors"
-                  onClick={() => setMobileOpen(false)}
+                  onClick={() => { document.body.style.overflow = ''; setMobileOpen(false); }}
                 >
                   {link.label}
                 </a>

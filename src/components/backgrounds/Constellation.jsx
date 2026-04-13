@@ -1,9 +1,11 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { useTheme } from '../../context/ThemeContext';
 
-const COUNT        = 85;
-const MAX_DIST     = 145;
-const SPEED        = 0.28;
+const IS_MOBILE    = typeof window !== 'undefined' && window.innerWidth < 768;
+const PREFERS_REDUCED = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const COUNT        = IS_MOBILE ? 40 : 85;
+const MAX_DIST     = IS_MOBILE ? 120 : 145;
+const SPEED        = PREFERS_REDUCED ? 0.08 : 0.28;
 const REPEL_RADIUS = 110;
 const REPEL_FORCE  = 2.2;
 
@@ -31,7 +33,7 @@ export default function Constellation() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(window.devicePixelRatio || 1, IS_MOBILE ? 1.5 : 2);
     const w = window.innerWidth, h = window.innerHeight;
     canvas.style.width  = `${w}px`;
     canvas.style.height = `${h}px`;

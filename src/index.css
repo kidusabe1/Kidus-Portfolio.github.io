@@ -57,6 +57,7 @@ body {
   mask-composite: exclude;
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 .glow-border:hover::before { opacity: 1; }
 
@@ -156,3 +157,22 @@ body {
 
 /* Active year-tab button (Books) stays readable */
 .light button.bg-white.text-black { background-color: #111111; color: #ffffff; }
+
+/* ══════════════════════════════════════════════════════════
+   REDUCED MOTION
+══════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE PERFORMANCE
+══════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .grid-bg { background-image: none; }
+  .noise-overlay::after { display: none; }
+}
