@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { BookOpen, X, MessageSquareQuote } from 'lucide-react';
+import { BookOpen, ChevronDown, X, MessageSquareQuote } from 'lucide-react';
 import { SectionHeader } from './Projects';
 import { booksData } from '../data/books';
+
+const BOOK_PREVIEW_LIMIT = 4;
 
 /* ── Extract dominant color from cover image ───────────── */
 const colorCache = {};
@@ -12,7 +14,7 @@ function useImageColor(src) {
 
   useEffect(() => {
     if (!src) return;
-    if (colorCache[src]) { setColor(colorCache[src]); return; }
+    if (colorCache[src]) return;
 
     const img = new Image();
     img.crossOrigin = 'anonymous';
@@ -169,7 +171,7 @@ function ThoughtsModal({ book, onClose }) {
 }
 
 /* ── Book card ─────────────────────────────────────────── */
-function BookCard({ book, index, onOpenThoughts }) {
+function BookCard({ book, index, onOpenThoughts, className = '' }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const hasThoughts = book.thoughts && book.thoughts !== 'null';
@@ -181,7 +183,7 @@ function BookCard({ book, index, onOpenThoughts }) {
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.4, delay: index * 0.06 }}
-      className="glass-card rounded-2xl overflow-hidden group transition-shadow duration-500"
+      className={`glass-card rounded-xl overflow-hidden group transition-shadow duration-500 ${className}`}
       onMouseEnter={(e) => {
         e.currentTarget.style.boxShadow = `0 0 25px rgba(${glowColor}, 0.18), 0 0 60px rgba(${glowColor}, 0.07)`;
       }}
@@ -208,7 +210,7 @@ function BookCard({ book, index, onOpenThoughts }) {
       </div>
 
       {/* Info — relative to sit above glow-border ::before */}
-      <div className="relative z-10 px-4 py-4">
+      <div className="relative z-10 px-3 py-3">
         <h3 className="text-sm font-semibold text-white leading-snug">
           {book.title}
         </h3>
@@ -250,20 +252,28 @@ export default function Books() {
 
   const [activeYear, setActiveYear] = useState(years[0] ?? 2026);
   const [openBook, setOpenBook] = useState(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const books = booksData[activeYear] ?? [];
+  const visibleBooks = isExpanded ? books : books.slice(0, BOOK_PREVIEW_LIMIT);
+  const hasMoreBooks = books.length > BOOK_PREVIEW_LIMIT;
+
+  const selectYear = (year) => {
+    setActiveYear(year);
+    setIsExpanded(false);
+  };
 
   return (
-    <section id="books" className="py-16 px-6">
+    <section id="books" className="py-12 px-6">
       <div className="max-w-5xl mx-auto">
         <SectionHeader title="Books I Loved" subtitle="Reading list" />
 
         {/* Year tabs */}
-        <div className="flex flex-wrap gap-2 mb-10">
+        <div className="flex flex-wrap items-center gap-2 mb-6">
           {years.map((year) => (
             <button
               key={year}
-              onClick={() => setActiveYear(year)}
+              onClick={() => selectYear(year)}
               className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
                 activeYear === year
                   ? 'bg-white text-black'
@@ -276,20 +286,49 @@ export default function Books() {
         </div>
 
         {/* Book grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div
+          id="books-grid"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4"
+        >
           {books.length > 0 ? (
-            books.map((book, i) => (
+            visibleBooks.map((book, i) => (
               <BookCard
                 key={book.title}
                 book={book}
                 index={i}
                 onOpenThoughts={setOpenBook}
+                className={
+                  !isExpanded && i === 2
+                    ? 'hidden sm:block'
+                    : !isExpanded && i === 3
+                      ? 'hidden lg:block'
+                      : ''
+                }
               />
             ))
           ) : (
             <EmptyState year={activeYear} />
           )}
         </div>
+
+        {hasMoreBooks && (
+          <div className="flex justify-center mt-5">
+            <button
+              type="button"
+              onClick={() => setIsExpanded((expanded) => !expanded)}
+              aria-expanded={isExpanded}
+              aria-controls="books-grid"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/[0.03] text-xs font-medium text-gray-400 hover:text-white hover:border-white/30 hover:bg-white/[0.06] transition-all duration-200"
+            >
+              {isExpanded ? 'Show fewer books' : `View all ${books.length} books`}
+              <ChevronDown
+                size={14}
+                aria-hidden="true"
+                className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
+              />
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Thoughts modal */}
