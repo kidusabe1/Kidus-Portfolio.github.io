@@ -37,9 +37,11 @@ function EducationCard({ edu, index }) {
           </p>
         </div>
       </div>
-      <p className="text-gray-300 text-sm leading-relaxed">
-        {edu.description}
-      </p>
+      {edu.description && (
+        <p className="text-gray-300 text-sm leading-relaxed">
+          {edu.description}
+        </p>
+      )}
     </motion.div>
   );
 }

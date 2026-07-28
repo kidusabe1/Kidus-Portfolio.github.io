@@ -30,9 +30,28 @@ function ActivityCard({ activity, index }) {
         <h3 className="text-base font-semibold text-white mt-1">
           {activity.title}
         </h3>
-        <p className="text-sm text-gray-400 leading-relaxed mt-2">
-          {activity.description}
-        </p>
+        {activity.organization && (
+          <p className="text-sm text-gray-500 mt-0.5">
+            {activity.organization}
+          </p>
+        )}
+        {Array.isArray(activity.description) ? (
+          <ul className="space-y-1.5 mt-2">
+            {activity.description.map((item) => (
+              <li
+                key={item}
+                className="text-sm text-gray-400 leading-relaxed flex gap-2"
+              >
+                <span aria-hidden="true" className="text-gray-600">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-sm text-gray-400 leading-relaxed mt-2">
+            {activity.description}
+          </p>
+        )}
       </div>
     </motion.div>
   );

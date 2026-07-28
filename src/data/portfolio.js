@@ -2,20 +2,20 @@ export const portfolioData = {
   personal: {
     name: 'Kidus',
     fullName: 'Kidus Abebe Mekonen',
-    tagline: 'Researcher • Data Scientist • Neuro-AI Engineer',
+    tagline: 'Neuro-AI Researcher • Computer Science & Neuroscience',
     headline: 'I bridge neuroscience and AI.',
     description:
-      'I integrate advanced machine learning models with neuroscientific data to yield analytical and clinical insights — specializing in neuro-data science, neural interfaces, and healthcare AI.',
+      'I combine computer science and neuroscience to build AI systems that improve quality of life for people living with neurodegenerative disease.',
     highlights: [
-      'Published in IEEE Access & Data Science and Management',
-      'MSc NeuroData (Erasmus Mundus) at Bar-Ilan University',
-      'Focused on neural decoding & healthcare AI',
+      'Neural Interfaces Lab • Gonda Brain Research Center',
+      'Erasmus Mundus MSc • Bar-Ilan & Vrije University',
+      'Published research with 400+ citations',
     ],
     about:
-      "I'm a researcher and data scientist specializing in neuro-data science, neural interfaces, and healthcare artificial intelligence. My work focuses on integrating advanced machine learning models with neuroscientific data to generate analytical and clinical insights. I hold an Erasmus Mundus Joint Master's in NeuroData from Bar-Ilan University, Israel, with research in Neural Manifolds, Spiking Neural Networks, and Graph Neural Wavelet Transforms, and a B.Tech in Information Technology from KIIT, India.",
+      "I bridge computer science and neuroscience with the goal of improving quality of life for people living with neurodegenerative disease. At the Neural Interfaces Lab in Bar-Ilan University's Gonda Brain Research Center, I worked on longitudinal patient modelling and conversational AI for Parkinson's disease. My training spans Brain and Data Science at Bar-Ilan University, neuroscience at Vrije University of Amsterdam, and Information Technology at KIIT.",
     email: 'kidusabebe1921@gmail.com',
     phone: '+918984937192',
-    address: 'Bar-Ilan University, Ramat Gan, Israel',
+    address: 'Vrije University of Amsterdam, Amsterdam, The Netherlands',
     cvUrl: 'myCV.pdf',
     social: {
       github: 'https://github.com/kidusabe1',
@@ -29,21 +29,68 @@ export const portfolioData = {
 
   education: [
     {
-      degree: 'Master of Science, NeuroData',
-      program: 'Erasmus Mundus Joint Master Degree',
-      institution: 'Bar-Ilan University',
-      location: 'Israel',
-      description:
-        'Research emphasis on Neural Manifolds, Spiking Neural Networks (SNNs), and Graph Neural Wavelet Transforms (GNWT).',
+      degree: 'MSc in Neuroscience',
+      institution: 'Vrije University of Amsterdam',
+      location: 'Amsterdam, The Netherlands',
+      period: 'Aug 2026',
     },
     {
-      degree: 'Bachelor of Technology, Information Technology',
-      institution: 'Kalinga Institute of Industrial Technology (KIIT)',
-      location: 'India',
-      period: 'Graduated 2025',
+      degree: 'MSc in Brain and Data Science',
+      program: 'Erasmus Mundus Joint Master Degree',
+      institution: 'Bar-Ilan University',
+      location: 'Ramat Gan, Israel',
+      period: 'Oct 2025 — Present',
       description:
-        'Graduated with a strong foundation in software engineering, data structures, and applied machine learning.',
+        'Interdisciplinary graduate study at the intersection of brain science, data science, and neural engineering.',
     },
+    {
+      degree: 'NeuroData Summer School',
+      institution: 'University of Zagreb',
+      location: 'Zagreb, Croatia',
+      period: 'Jul 2026',
+    },
+    {
+      degree: 'Bachelor of Technology in Information Technology',
+      institution: 'Kalinga Institute of Industrial Technology (KIIT)',
+      location: 'Bhubaneswar, India',
+      period: 'Oct 2021 — Jun 2025',
+    },
+    {
+      degree: 'Exchange Semester, Department of AI',
+      program: 'Global Korea Scholarship',
+      institution: 'Chungnam National University',
+      location: 'Daejeon, South Korea',
+      period: 'Sep 2024 — Dec 2024',
+    },
+  ],
+
+  awards: [
+    {
+      title: 'Erasmus Mundus Joint Master Scholarship',
+      description:
+        'Neuroscience and Data Science graduate study across Israel and the Netherlands.',
+    },
+    {
+      title: 'Fully Funded Merit Scholarship',
+      description:
+        'Study in India scholarship covering four years of bachelor’s study.',
+    },
+    {
+      title: 'Global Korea Scholarship',
+      description:
+        'Funded an exchange semester at Chungnam National University in South Korea.',
+    },
+  ],
+
+  certifications: [
+    'Google Advanced Data Analytics Specialization',
+    'TensorFlow and Deep Learning',
+    'Supervised Machine Learning',
+    'Data Integration with Microsoft Azure Data Factory',
+    'Security and Privacy for Big Data',
+    'Hadoop Platform and Application Framework',
+    'Advanced Data Visualisation with Tableau',
+    'Business Analytics with R',
   ],
 
   skills: {
@@ -86,20 +133,28 @@ export const portfolioData = {
 
   projects: [
     {
-      title: 'PD-GPT: Parkinson\'s Disease Monitoring System',
+      title: 'AI-Augmented Treatment for Parkinson’s Disease',
       image: 'images/pic04.jpg',
-      link: 'https://github.com/kidusabe1',
+      period: 'Oct 2025 — Jul 2026',
       description:
-        'Specialized application for continuous monitoring of Parkinson\'s Disease patients, utilizing AI to track progression and enhance patient management.',
-      tags: ['Healthcare AI', 'NLP', 'Patient Monitoring'],
+        'Helped design a WhatsApp-based clinical AI agent with domain-specific agents that capture symptoms, medication events, and patient routines.',
+      tags: ['Clinical AI', 'Conversational Agents', 'Parkinson’s Disease'],
     },
     {
-      title: 'EEG Signal Processing & Neural Decoding',
+      title: 'LoCoPD: Longitudinal Conversational Modelling',
       image: 'images/pic04.jpg',
-      link: 'https://github.com/kidusabe1',
+      period: 'Mar 2026 — Jul 2026',
       description:
-        'Classification systems for imagined speech and neural data using advanced architectures such as LFADS, FAST, and TSCeption.',
-      tags: ['EEG', 'Neural Decoding', 'SNNs'],
+        'Built a synthetic patient generator for realistic, multidimensional profiles representing people living with Parkinson’s disease.',
+      tags: ['Synthetic Data', 'Patient Modelling', 'Parkinson’s Disease'],
+    },
+    {
+      title: 'Covert Speech Classification with a Spatio-Temporal Transformer',
+      image: 'images/pic04.jpg',
+      period: 'Oct 2025 — Mar 2026',
+      description:
+        'Performed model interpretability analysis for a functional-area spatio-temporal transformer used in EEG-based imagined-speech classification.',
+      tags: ['EEG', 'Transformers', 'Interpretability'],
     },
     {
       title: 'NLP Based Multilingual Video Summarizer',
@@ -152,58 +207,64 @@ export const portfolioData = {
 
   publications: [
     {
-      year: '2025',
-      title: 'Published in Data Science and Management',
-      venue: 'Data Science and Management',
-      paper:
-        'Unlocking the Power of Machine Learning in Big Data: A Scoping Survey',
-      link: 'https://www.sciencedirect.com/science/article/pii/S2666764925000104?via%3Dihub',
-      image: 'images/elsevier.svg',
-    },
-    {
-      year: 'Jan 2025',
-      title: 'Became an IEEE Member',
-      venue: 'IEEE',
-      image: 'images/IEEE.png',
-    },
-    {
       year: '2024',
-      title: 'Published in IEEE Access',
-      venue: 'IEEE Access',
-      paper:
+      title:
         'Privacy and Security Concerns in Generative AI: A Comprehensive Survey',
+      venue: 'IEEE Access',
+      description:
+        'Reviews major privacy and security risks in generative AI, mitigation strategies, and open research challenges. The paper has received over 400 citations.',
       link: 'https://ieeexplore.ieee.org/document/10478883',
       image: 'images/IEEE.png',
+    },
+    {
+      year: '2025',
+      title:
+        'Unlocking the Power of Machine Learning in Big Data: A Scoping Survey',
+      venue: 'Data Science and Management',
+      description:
+        'Surveys the role of machine learning in big data analytics, tracing the development of ML-enabled data processing and decision-support systems.',
+      link: 'https://www.sciencedirect.com/science/article/pii/S2666764925000104?via%3Dihub',
+      image: 'images/elsevier.svg',
     },
   ],
 
   workExperience: [
     {
+      period: 'Oct 2025 — Jul 2026',
+      company: 'Neural Interfaces Lab',
+      organization: 'Gonda Brain Research Center',
+      location: 'Ramat Gan, Israel',
+      role: 'Research Intern · 30 hours/week',
+      description: [
+        'Worked on a project to improve quality of life for people with Parkinson’s disease under Prof. Izhar Bar-Gad.',
+        'Developed longitudinal patient modelling approaches for conversational agents.',
+      ],
+    },
+    {
       period: 'May 2024 — Jul 2024',
-      company: 'HighRadius',
-      role: 'IT Consultant Intern',
-      description:
-        'Designed and implemented automated ETL pipelines, increasing data processing efficiency by 60%, while building sustainable and scalable solutions using AWS, SQL, and other database technologies.',
+      company: 'HighRadius Technologies',
+      organization: 'FinTech',
+      location: 'Bhubaneswar, India',
+      role: 'Technology Consultant Intern · 40 hours/week',
+      description: [
+        'Designed and implemented automated ETL pipelines, improving data processing efficiency by 60%.',
+        'Built sustainable and scalable solutions using AWS, SQL, and other database tools.',
+      ],
       link: 'https://www.highradius.com/',
       image: 'images/HighRadius.svg',
     },
     {
       period: 'May 2023 — Nov 2023',
-      company: 'BITS Pilani',
-      role: 'Generative AI Research Intern',
-      description:
-        'Authored and published a research paper titled "Privacy and Security Concerns in Generative AI," proposing strategies to mitigate privacy and security risks in AI-driven technologies.',
+      company: 'Birla Institute of Technology and Science',
+      organization: 'Pilani Campus',
+      location: 'Pilani, India',
+      role: 'Research Intern · 20 hours/week',
+      description: [
+        'Proposed strategies for mitigating privacy and security risks in AI-driven technologies under Prof. Vikas Hassija.',
+        'Co-authored the published survey “Privacy and Security Concerns in Generative AI.”',
+      ],
       link: 'https://www.bits-pilani.ac.in/',
       image: 'images/bits.webp',
-    },
-    {
-      period: 'Oct 2023 — Feb 2024',
-      company: 'UCMAS',
-      role: 'Marketing Associate',
-      description:
-        'Spearheaded social media analytics tracking, optimizing post performance and increasing reach by 35%. Implemented marketing strategies that led to a 30% increase in lead generation.',
-      link: 'https://www.ucmasodisha.in/',
-      image: 'images/UCMAS.avif',
     },
   ],
 
@@ -238,22 +299,30 @@ export const portfolioData = {
     {
       period: 'Feb 2017 — Jul 2020',
       title: 'Blood Donation Camp Organizer',
-      description:
-        'Coordinated with local centers to organize tri-monthly blood donation camps in my high school and neighborhood, leading a team of student volunteers.',
+      organization: 'Ethiopian Blood Bank · Mekelle Center',
+      description: [
+        'Coordinated tri-monthly blood donation camps in my high school and neighborhood.',
+        'Led student volunteers promoting the initiative across the school and community.',
+      ],
       image: 'images/blood bank.jpg',
     },
     {
       period: 'Mar 2017 — Jun 2020',
       title: 'Community School English Teacher',
-      description:
-        'Volunteered to teach underprivileged children (ages 8 to 17) with limited English proficiency.',
+      organization: 'Paradise School of American English',
+      description: [
+        'Volunteered to teach underprivileged children ages 8 to 17 with limited English proficiency.',
+      ],
       image: 'images/PSE.png',
     },
     {
       period: 'Apr 2023 — Mar 2024',
-      title: 'KIIT University AI Society Core Member',
-      description:
-        'Collaborated with top AI researchers to organize events, workshops, and initiatives focused on AI, fostering a community of learners and professionals.',
+      title: 'Core Member',
+      organization: 'Artificial Intelligence Society of KIIT · AISOC',
+      description: [
+        'Collaborated with leading AI researchers to organize events, workshops, and initiatives for a community of learners and professionals.',
+        'Supported AI research and education through active participation in the university’s non-profit society.',
+      ],
       image: 'images/AISOC.png',
     },
   ],

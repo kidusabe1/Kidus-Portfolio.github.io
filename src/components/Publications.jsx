@@ -37,12 +37,17 @@ function PublicationCard({ pub, index }) {
           )}
           <div className="flex-1">
             <span className="text-xs text-gray-500 font-mono">{pub.year}</span>
+            {pub.venue && (
+              <p className="text-xs uppercase tracking-wider text-gray-500 mt-1">
+                {pub.venue}
+              </p>
+            )}
             <h3 className="text-lg font-semibold text-white mt-1">
               {pub.title}
             </h3>
-            {pub.paper && (
-              <p className="text-sm text-gray-400 mt-2 italic">
-                &ldquo;{pub.paper}&rdquo;
+            {pub.description && (
+              <p className="text-sm text-gray-400 mt-2 leading-relaxed">
+                {pub.description}
               </p>
             )}
             {pub.link && (

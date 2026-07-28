@@ -36,12 +36,32 @@ function ExperienceCard({ exp, index }) {
           <h3 className="text-lg font-semibold text-white mt-1">
             {exp.company}
           </h3>
+          {exp.organization && (
+            <p className="text-sm text-gray-400">{exp.organization}</p>
+          )}
           <p className="text-sm text-gray-400">{exp.role}</p>
+          {exp.location && (
+            <p className="text-xs text-gray-500 mt-1">{exp.location}</p>
+          )}
         </div>
       </div>
-      <p className="text-gray-300 text-sm leading-relaxed mb-4">
-        {exp.description}
-      </p>
+      {Array.isArray(exp.description) ? (
+        <ul className="space-y-2 mb-4">
+          {exp.description.map((item) => (
+            <li
+              key={item}
+              className="text-gray-300 text-sm leading-relaxed flex gap-2"
+            >
+              <span aria-hidden="true" className="text-gray-600">•</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-gray-300 text-sm leading-relaxed mb-4">
+          {exp.description}
+        </p>
+      )}
       {exp.link && (
         <a
           href={exp.link}

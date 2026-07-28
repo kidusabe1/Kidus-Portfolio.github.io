@@ -6,17 +6,25 @@ import { portfolioData } from '../data/portfolio';
 function ProjectCard({ project, index }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const Card = project.link ? motion.a : motion.article;
+  const linkProps = project.link
+    ? {
+        href: project.link,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      }
+    : {};
 
   return (
-    <motion.a
+    <Card
       ref={ref}
-      href={project.link}
-      target="_blank"
-      rel="noopener noreferrer"
+      {...linkProps}
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group glass-card glow-border rounded-2xl overflow-hidden block"
+      className={`group glass-card glow-border rounded-2xl overflow-hidden block ${
+        project.link ? 'cursor-pointer' : ''
+      }`}
     >
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
@@ -27,9 +35,16 @@ function ProjectCard({ project, index }) {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
-        <div className="absolute top-3 right-3 p-2 rounded-full bg-white/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <ExternalLink size={14} className="text-white" />
-        </div>
+        {project.period && (
+          <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-sm text-[11px] text-gray-300 font-mono">
+            {project.period}
+          </span>
+        )}
+        {project.link && (
+          <div className="absolute top-3 right-3 p-2 rounded-full bg-white/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <ExternalLink size={14} className="text-white" />
+          </div>
+        )}
       </div>
 
       {/* Content */}
@@ -51,7 +66,7 @@ function ProjectCard({ project, index }) {
           ))}
         </div>
       </div>
-    </motion.a>
+    </Card>
   );
 }
 
