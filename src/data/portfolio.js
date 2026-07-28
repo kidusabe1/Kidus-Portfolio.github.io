@@ -14,7 +14,7 @@ export const portfolioData = {
     about:
       "I bridge computer science and neuroscience with the goal of improving quality of life for people living with neurodegenerative disease. At the Neural Interfaces Lab in Bar-Ilan University's Gonda Brain Research Center, I worked on longitudinal patient modelling and conversational AI for Parkinson's disease. My training spans Brain and Data Science at Bar-Ilan University, neuroscience at Vrije University of Amsterdam, and Information Technology at KIIT.",
     email: 'kidusabebe1921@gmail.com',
-    phone: '+918984937192',
+    phone: '+251945836505',
     address: 'Vrije University of Amsterdam, Amsterdam, The Netherlands',
     cvUrl: 'myCV.pdf',
     social: {
@@ -134,7 +134,7 @@ export const portfolioData = {
   projects: [
     {
       title: 'AI-Augmented Treatment for Parkinson’s Disease',
-      image: 'images/pic04.jpg',
+      image: 'images/parkinsons-clinical-ai.jpg',
       period: 'Oct 2025 — Jul 2026',
       description:
         'Helped design a WhatsApp-based clinical AI agent with domain-specific agents that capture symptoms, medication events, and patient routines.',
@@ -142,7 +142,7 @@ export const portfolioData = {
     },
     {
       title: 'LoCoPD: Longitudinal Conversational Modelling',
-      image: 'images/pic04.jpg',
+      image: 'images/locopd-longitudinal-modelling.jpg',
       period: 'Mar 2026 — Jul 2026',
       description:
         'Built a synthetic patient generator for realistic, multidimensional profiles representing people living with Parkinson’s disease.',
@@ -150,7 +150,7 @@ export const portfolioData = {
     },
     {
       title: 'Covert Speech Classification with a Spatio-Temporal Transformer',
-      image: 'images/pic04.jpg',
+      image: 'images/covert-speech-eeg-transformer.jpg',
       period: 'Oct 2025 — Mar 2026',
       description:
         'Performed model interpretability analysis for a functional-area spatio-temporal transformer used in EEG-based imagined-speech classification.',
