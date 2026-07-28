@@ -3,10 +3,10 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Education from './components/Education';
-import Credentials from './components/Credentials';
 import Experience from './components/Experience';
-import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Credentials from './components/Credentials';
+import Skills from './components/Skills';
 import Publications from './components/Publications';
 import Blogs from './components/Blogs';
 import Extracurricular from './components/Extracurricular';
@@ -25,10 +25,10 @@ export default function App() {
           <Hero />
           <About />
           <Education />
-          <Credentials />
           <Experience />
-          <Skills />
           <Projects />
+          <Credentials />
+          <Skills />
           <Publications />
           <Blogs />
           <Extracurricular />
