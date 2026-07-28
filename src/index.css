@@ -176,3 +176,227 @@ body {
   .grid-bg { background-image: none; }
   .noise-overlay::after { display: none; }
 }
+
+/* ══════════════════════════════════════════════════════════
+   COURSE STUDY
+══════════════════════════════════════════════════════════ */
+.course-page {
+  --course-accent: #a7f3d0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 82% 8%, rgba(52, 211, 153, 0.07), transparent 28rem),
+    #0a0a0a;
+}
+
+.course-accent { color: var(--course-accent); }
+
+.course-nav {
+  background: rgba(10, 10, 10, 0.78);
+  backdrop-filter: blur(16px);
+}
+
+.course-hero {
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.course-readout {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(13, 18, 16, 0.76);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.28);
+}
+
+.course-live-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: var(--course-accent);
+  box-shadow: 0 0 0.8rem rgba(167, 243, 208, 0.7);
+}
+
+.course-waveform {
+  display: flex;
+  height: 8rem;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.course-waveform span {
+  width: 100%;
+  height: var(--bar-height);
+  min-height: 2px;
+  background: linear-gradient(to bottom, rgba(167, 243, 208, 0.18), var(--course-accent));
+  opacity: 0.86;
+}
+
+.course-raster-row {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  gap: 0.25rem;
+}
+
+.course-raster-row span {
+  height: 0.2rem;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.course-raster-row span.is-spike {
+  height: 0.7rem;
+  margin-top: -0.25rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.course-stat,
+.course-finding {
+  background: #0d0d0d;
+}
+
+.course-motif {
+  position: relative;
+  display: flex;
+  height: 15rem;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.75rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+    rgba(255, 255, 255, 0.015);
+  background-size: 2rem 2rem;
+  padding: 2.25rem;
+}
+
+.course-motif > span {
+  z-index: 1;
+  width: 0.75rem;
+  background: rgba(167, 243, 208, 0.76);
+}
+
+.course-motif > span:nth-of-type(1) { height: 18%; }
+.course-motif > span:nth-of-type(2) { height: 28%; }
+.course-motif > span:nth-of-type(3) { height: 44%; }
+.course-motif > span:nth-of-type(4) { height: 78%; }
+.course-motif > span:nth-of-type(5) { height: 58%; }
+.course-motif > span:nth-of-type(6) { height: 37%; }
+.course-motif > span:nth-of-type(7) { height: 24%; }
+.course-motif > span:nth-of-type(8) { height: 16%; }
+.course-motif > span:nth-of-type(9) { height: 10%; }
+
+.course-motif--event > span:nth-of-type(4),
+.course-motif--event > span:nth-of-type(5),
+.course-motif--event > span:nth-of-type(6) {
+  height: 88%;
+}
+
+.course-motif--spike > span {
+  width: 0.2rem;
+}
+
+.course-motif--spike > span:nth-of-type(3),
+.course-motif--spike > span:nth-of-type(7) {
+  height: 92%;
+}
+
+.course-motif--latent > span {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+}
+
+.course-motif--latent > span:nth-of-type(-n+4) {
+  margin-bottom: 55%;
+}
+
+.course-motif__axis {
+  position: absolute;
+  inset: auto 1.5rem 1.5rem;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.course-findings {
+  border-block: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.light .course-page {
+  --course-accent: #047857;
+  background:
+    radial-gradient(circle at 82% 8%, rgba(5, 150, 105, 0.08), transparent 28rem),
+    #f4f4f2;
+}
+
+.light .course-nav { background: rgba(244, 244, 242, 0.84); }
+.light .course-readout {
+  border-color: rgba(0, 0, 0, 0.11);
+  background: rgba(247, 250, 248, 0.9);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.08);
+}
+.light .course-stat,
+.light .course-finding { background: #f7f7f5; }
+.light .course-motif {
+  border-color: rgba(0, 0, 0, 0.1);
+  background:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px),
+    rgba(255, 255, 255, 0.38);
+  background-size: 2rem 2rem;
+}
+.light .course-raster-row span { background: rgba(0, 0, 0, 0.06); }
+.light .course-raster-row span.is-spike { background: rgba(0, 0, 0, 0.62); }
+.light .course-findings {
+  border-color: rgba(0, 0, 0, 0.06);
+  background: rgba(0, 0, 0, 0.015);
+}
+
+.course-project-cover {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px),
+    #0b1511;
+  background-size: 2rem 2rem;
+}
+
+.course-project-cover__trace {
+  position: absolute;
+  inset: 46% 8% auto;
+  height: 2px;
+  background: #a7f3d0;
+  box-shadow:
+    1.2rem -0.5rem 0 -0.5px #a7f3d0,
+    2.4rem 0.9rem 0 -0.5px #a7f3d0,
+    3.6rem -2.4rem 0 1px #a7f3d0,
+    4.8rem 1.4rem 0 -0.5px #a7f3d0,
+    6rem -0.7rem 0 -0.5px #a7f3d0,
+    7.2rem 0.2rem 0 -0.5px #a7f3d0,
+    8.4rem -1.7rem 0 0 #a7f3d0,
+    9.6rem 0.6rem 0 -0.5px #a7f3d0,
+    10.8rem -0.2rem 0 -0.5px #a7f3d0;
+}
+
+.course-project-cover__spikes {
+  position: absolute;
+  inset: 68% 9% auto;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow:
+    1.5rem -0.35rem 0 0 rgba(255,255,255,0.75),
+    4.2rem -0.35rem 0 0 rgba(255,255,255,0.75),
+    7.1rem -0.35rem 0 0 rgba(255,255,255,0.75),
+    9.7rem -0.35rem 0 0 rgba(255,255,255,0.75);
+}
+
+.course-project-cover__label {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: rgba(167, 243, 208, 0.8);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.18em;
+}

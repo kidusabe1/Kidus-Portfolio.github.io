@@ -133,6 +133,17 @@ export const portfolioData = {
 
   projects: [
     {
+      title: 'Signal & Data Analysis for Neuroscience',
+      image: null,
+      variant: 'course',
+      period: 'Course portfolio',
+      link: `${import.meta.env.BASE_URL}course/signal-data-analysis/`,
+      internal: true,
+      description:
+        'Four computational studies spanning signal denoising, event-related firing, spike-train dynamics, and latent structure in neural waveforms.',
+      tags: ['Computational Neuroscience', 'Signal Processing', 'Python'],
+    },
+    {
       title: 'AI-Augmented Treatment for Parkinson’s Disease',
       image: 'images/parkinsons-clinical-ai.jpg',
       period: 'Oct 2025 — Jul 2026',

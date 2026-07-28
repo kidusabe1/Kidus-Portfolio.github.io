@@ -20,4 +20,6 @@ export function ThemeProvider({ children }) {
   );
 }
 
+// This module intentionally colocates the provider and its small companion hook.
+// eslint-disable-next-line react-refresh/only-export-components
 export const useTheme = () => useContext(ThemeContext);

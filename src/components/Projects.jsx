@@ -10,8 +10,9 @@ function ProjectCard({ project, index }) {
   const linkProps = project.link
     ? {
         href: project.link,
-        target: '_blank',
-        rel: 'noopener noreferrer',
+        ...(project.internal
+          ? {}
+          : { target: '_blank', rel: 'noopener noreferrer' }),
       }
     : {};
 
@@ -28,19 +29,31 @@ function ProjectCard({ project, index }) {
     >
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
+        {project.variant === 'course' ? (
+          <div
+            className="course-project-cover h-full"
+            role="img"
+            aria-label="Abstract neural signal and spike raster"
+          >
+            <span className="course-project-cover__trace" />
+            <span className="course-project-cover__spikes" />
+            <span className="course-project-cover__label">SDA / 01—04</span>
+          </div>
+        ) : (
+          <img
+            src={project.image}
+            alt={project.title}
+            loading="lazy"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
         {project.period && (
           <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-sm text-[11px] text-gray-300 font-mono">
             {project.period}
           </span>
         )}
-        {project.link && (
+        {project.link && !project.internal && (
           <div className="absolute top-3 right-3 p-2 rounded-full bg-white/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <ExternalLink size={14} className="text-white" />
           </div>
