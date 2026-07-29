@@ -133,17 +133,6 @@ export const portfolioData = {
 
   projects: [
     {
-      title: 'Signal & Data Analysis for Neuroscience',
-      image: null,
-      variant: 'course',
-      period: 'Course portfolio',
-      link: `${import.meta.env.BASE_URL}course/signal-data-analysis/`,
-      internal: true,
-      description:
-        'Four computational studies spanning signal denoising, event-related firing, spike-train dynamics, and latent structure in LFP trials.',
-      tags: ['Computational Neuroscience', 'Signal Processing', 'Python'],
-    },
-    {
       title: 'AI-Augmented Treatment for Parkinson’s Disease',
       image: 'images/parkinsons-clinical-ai.jpg',
       period: 'Oct 2025 — Jul 2026',
@@ -166,6 +155,17 @@ export const portfolioData = {
       description:
         'Performed model interpretability analysis for a functional-area spatio-temporal transformer used in EEG-based imagined-speech classification.',
       tags: ['EEG', 'Transformers', 'Interpretability'],
+    },
+    {
+      title: 'Signal & Data Analysis for Neuroscience',
+      image: null,
+      variant: 'course',
+      period: 'Course portfolio',
+      link: `${import.meta.env.BASE_URL}course/signal-data-analysis/`,
+      internal: true,
+      description:
+        'Four computational studies spanning signal denoising, event-related firing, spike-train dynamics, and latent structure in LFP trials.',
+      tags: ['Computational Neuroscience', 'Signal Processing', 'Python'],
     },
     {
       title: 'NLP Based Multilingual Video Summarizer',

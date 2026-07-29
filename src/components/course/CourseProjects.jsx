@@ -129,21 +129,26 @@ function ProjectStory({ project }) {
   );
 }
 
-function Findings() {
+function Learnings() {
   return (
     <section className="course-findings px-5 py-24 sm:px-6 sm:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionIntro
           index="02"
-          eyebrow="Selected findings"
-          title="Numbers with context."
-          description="Three memorable checkpoints from the analyses—not benchmark claims, but concrete observations that shaped the reasoning."
+          eyebrow="Course takeaways"
+          title="What I learned."
+          description="The assignments changed how I choose representations, analyze spike timing, and validate computational methods."
         />
         <div className="mt-12 grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-3">
-          {coursePortfolio.findings.map((finding) => (
-            <article key={finding.value} className="course-finding p-6 sm:p-8">
-              <p className="font-mono text-3xl tracking-tight text-white">{finding.value}</p>
-              <p className="mt-4 text-sm leading-relaxed text-gray-500">{finding.label}</p>
+          {coursePortfolio.learnings.map((learning, index) => (
+            <article key={learning.title} className="course-finding p-6 sm:p-8">
+              <p className="font-mono text-xs course-accent">0{index + 1}</p>
+              <h3 className="mt-5 text-xl font-semibold tracking-tight text-white">
+                {learning.title}
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-gray-500">
+                {learning.description}
+              </p>
             </article>
           ))}
         </div>
@@ -162,8 +167,8 @@ function Reflection() {
         </div>
         <blockquote className="max-w-3xl">
           <p className="text-2xl font-medium leading-snug tracking-tight text-gray-200 sm:text-4xl sm:leading-snug">
-            The central lesson was not finding one “correct” method. It was learning
-            to ask what information each representation preserves—and what it hides.
+            I learned to evaluate a method by the assumptions it makes, the structure
+            it reveals, and the information it removes.
           </p>
           <footer className="mt-7 text-sm text-gray-600">
             Kidus Abebe Mekonen · Signal and Data Analysis for Neuroscience
@@ -182,8 +187,8 @@ export default function CourseProjects() {
           <SectionIntro
             index="01"
             eyebrow="Questions + results"
-            title="Four results worth seeing."
-            description="Each study starts with the original assignment question, then shows the actual result produced from the submitted data and analysis."
+            title="Four selected analyses."
+            description="Each study includes the assignment question, the method I used, the result, and my interpretation."
           />
           <div className="mt-2">
             {coursePortfolio.projects.map((project) => (
@@ -193,7 +198,7 @@ export default function CourseProjects() {
           <Toolkit />
         </div>
       </section>
-      <Findings />
+      <Learnings />
       <Reflection />
     </>
   );

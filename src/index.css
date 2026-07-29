@@ -254,9 +254,14 @@ body {
 
 .course-chart-frame {
   overflow: hidden;
+  padding: clamp(0.75rem, 1.8vw, 1.5rem);
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: #0d1210;
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+}
+
+.course-chart-frame img {
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .course-question {
@@ -290,6 +295,7 @@ body {
   background: #f7f7f5;
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.08);
 }
+.light .course-chart-frame img { border-color: rgba(0, 0, 0, 0.06); }
 .light .course-question { background: rgba(0, 0, 0, 0.018); }
 .light .course-raster-row span { background: rgba(0, 0, 0, 0.06); }
 .light .course-raster-row span.is-spike { background: rgba(0, 0, 0, 0.62); }

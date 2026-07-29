@@ -4,7 +4,7 @@ import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const navLinks = [
-  { label: 'Education',    href: '#education' },
+  { label: 'SDA',          href: `${import.meta.env.BASE_URL}course/signal-data-analysis/` },
   { label: 'Experience',   href: '#experience' },
   { label: 'Projects',     href: '#projects' },
   { label: 'Publications', href: '#publications' },

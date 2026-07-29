@@ -5,7 +5,7 @@ export const coursePortfolio = {
     student: 'Kidus Abebe Mekonen',
     role: 'Neuro-AI Researcher',
     summary:
-      'Four selected investigations showing how raw neural recordings became interpretable evidence—from noisy signals and stimulus-locked firing to refractory dynamics and latent structure.',
+      'Four assignments on signal estimation, stimulus-locked firing, spike-train dynamics, and dimensionality reduction.',
   },
 
   stats: [
@@ -29,7 +29,7 @@ export const coursePortfolio = {
         'A 50-sample Gaussian window with σ = 10 separated the slow oscillation from the high-frequency residual and produced an estimated SNR of 9.40 dB.',
       takeaway:
         'The plot makes the trade-off visible: smoothing reveals the underlying waveform, but more aggressive kernels begin to flatten meaningful structure.',
-      tags: ['Gaussian convolution', 'SNR', 'Bias–variance trade-off'],
+      tags: ['Gaussian convolution', 'SNR', 'Bias and variance'],
       chart: 'signal-recovery',
       chartAlt:
         'Noisy oscillating signal overlaid with its Gaussian-smoothed estimate, with the residual noise shown below.',
@@ -93,18 +93,21 @@ export const coursePortfolio = {
     },
   ],
 
-  findings: [
+  learnings: [
     {
-      value: '9.40 dB',
-      label: 'Estimated signal-to-noise ratio after selecting a 50-sample Gaussian window.',
+      title: 'Match the representation to the question',
+      description:
+        'Smoothing windows, histogram bins, and analysis intervals are modeling choices. I learned to set them according to the time scale of the neural process, then check which details they preserve or remove.',
     },
     {
-      value: '113.2 Hz',
-      label: 'Peak stimulus-locked firing rate, reached 75 ms after onset.',
+      title: 'Read spike trains from several views',
+      description:
+        'Firing rate alone does not describe temporal structure. Inter-spike intervals, survivor and hazard functions, PSTHs, and autocorrelation answer different questions about the same spikes.',
     },
     {
-      value: '92.9%',
-      label: 'Variance explained by the first two principal components.',
+      title: 'Implement, validate, then interpret',
+      description:
+        'Writing methods from their mathematical definitions made their assumptions clearer. Comparing my implementations with library results helped separate coding errors from meaningful patterns in the data.',
     },
   ],
 

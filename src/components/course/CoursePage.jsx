@@ -23,7 +23,7 @@ function CourseNav() {
           Portfolio
         </a>
         <span className="hidden font-mono text-[11px] uppercase tracking-[0.24em] text-gray-500 sm:block">
-          Course study · SDA 01—04
+          Course study · SDA 01-04
         </span>
         <button
           type="button"
@@ -107,8 +107,8 @@ function CourseHero() {
             transition={{ delay: 0.08, duration: 0.65 }}
             className="max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl"
           >
-            Making neural signals
-            <span className="block text-gray-500">speak in data.</span>
+            Signal and data analysis
+            <span className="block text-gray-500">for neuroscience.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}

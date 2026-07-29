@@ -37,7 +37,7 @@ function ProjectCard({ project, index }) {
           >
             <span className="course-project-cover__trace" />
             <span className="course-project-cover__spikes" />
-            <span className="course-project-cover__label">SDA / 01—04</span>
+            <span className="course-project-cover__label">SDA / 01-04</span>
           </div>
         ) : (
           <img
