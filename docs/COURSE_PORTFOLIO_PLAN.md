@@ -15,8 +15,8 @@ course material a distinct scientific-data presentation.
   icons; add no dependencies.
 - Keep four curated, factual studies in a dedicated data module derived from
   the notebooks.
-- Use CSS/HTML data motifs and the portfolio's existing imagery rather than
-  generic stock illustrations.
+- Use redesigned plots generated from the original course datasets, with
+  separate dark and light variants that follow the portfolio theme.
 
 ## Task List
 
@@ -40,8 +40,8 @@ course material a distinct scientific-data presentation.
 ### Phase 2: Course experience
 
 - [ ] Build the responsive course page.
-  - Acceptance: hero, learning path, project stories, methods, and course
-    reflection render in both themes.
+  - Acceptance: hero, original assignment prompts, real result plots, methods,
+    and course reflection render in both themes.
   - Verify: keyboard and responsive browser checks.
   - Files: `src/components/course/CoursePage.jsx`, `src/index.css`
 

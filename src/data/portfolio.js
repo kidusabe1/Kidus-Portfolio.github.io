@@ -140,7 +140,7 @@ export const portfolioData = {
       link: `${import.meta.env.BASE_URL}course/signal-data-analysis/`,
       internal: true,
       description:
-        'Four computational studies spanning signal denoising, event-related firing, spike-train dynamics, and latent structure in neural waveforms.',
+        'Four computational studies spanning signal denoising, event-related firing, spike-train dynamics, and latent structure in LFP trials.',
       tags: ['Computational Neuroscience', 'Signal Processing', 'Python'],
     },
     {

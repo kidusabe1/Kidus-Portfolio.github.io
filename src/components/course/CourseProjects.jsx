@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { useTheme } from '../../context/ThemeContext';
 import { coursePortfolio } from '../../data/coursePortfolio';
 
 function SectionIntro({ index, eyebrow, title, description }) {
@@ -41,20 +42,11 @@ function Toolkit() {
   );
 }
 
-function ProjectMotif({ accent }) {
-  return (
-    <div className={`course-motif course-motif--${accent}`} aria-hidden="true">
-      <div className="course-motif__axis" />
-      {Array.from({ length: 9 }).map((_, index) => (
-        <span key={index} />
-      ))}
-    </div>
-  );
-}
-
-function ProjectStory({ project, index }) {
+function ProjectStory({ project }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const { isDark } = useTheme();
+  const chartUrl = `${import.meta.env.BASE_URL}images/course/${project.chart}-${isDark ? 'dark' : 'light'}.png`;
 
   return (
     <motion.article
@@ -62,54 +54,76 @@ function ProjectStory({ project, index }) {
       initial={{ opacity: 0, y: 28 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55 }}
-      className="grid gap-8 border-b border-white/10 py-12 md:grid-cols-[0.42fr_0.58fr] md:gap-14 md:py-16"
+      className="border-b border-white/10 py-14 md:py-20"
     >
-      <div className={index % 2 ? 'md:order-2' : ''}>
-        <div className="mb-5 flex items-center justify-between">
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gray-600">
-            {project.index}
-          </p>
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em] course-accent">
-            {project.eyebrow}
-          </p>
-        </div>
-        <ProjectMotif accent={project.accent} />
+      <div className="flex items-center justify-between">
+        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gray-600">
+          {project.index}
+        </p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.18em] course-accent">
+          {project.eyebrow}
+        </p>
       </div>
+      <h3
+        id={project.id}
+        className="mt-5 max-w-3xl text-2xl font-semibold tracking-tight text-white sm:text-4xl"
+      >
+        {project.title}
+      </h3>
 
-      <div className={index % 2 ? 'md:order-1' : ''}>
-        <h3 id={project.id} className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-          {project.title}
-        </h3>
-        <dl className="mt-7 space-y-6">
-          <div className="grid gap-2 sm:grid-cols-[7rem_1fr]">
+      <figure className="course-chart-frame mt-8">
+        <img
+          src={chartUrl}
+          alt={project.chartAlt}
+          loading="lazy"
+          className="block h-auto w-full"
+        />
+      </figure>
+
+      <div className="mt-8 grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:gap-14">
+        <div className="course-question">
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em] course-accent">
+            Original assignment prompt
+          </p>
+          <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-gray-600">
+            {project.assignment}
+          </p>
+          <blockquote className="mt-5 text-sm leading-relaxed text-gray-300">
+            {project.question}
+          </blockquote>
+        </div>
+
+        <dl className="space-y-6">
+          <div className="grid gap-2 sm:grid-cols-[6rem_1fr]">
             <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-gray-600">
-              Question
-            </dt>
-            <dd className="text-sm leading-relaxed text-gray-300">{project.question}</dd>
-          </div>
-          <div className="grid gap-2 sm:grid-cols-[7rem_1fr]">
-            <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-gray-600">
-              Approach
+              Method
             </dt>
             <dd className="text-sm leading-relaxed text-gray-500">{project.approach}</dd>
           </div>
-          <div className="grid gap-2 sm:grid-cols-[7rem_1fr]">
+          <div className="grid gap-2 sm:grid-cols-[6rem_1fr]">
             <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-gray-600">
-              Takeaway
+              Result
+            </dt>
+            <dd className="text-sm leading-relaxed text-gray-300">{project.result}</dd>
+          </div>
+          <div className="grid gap-2 sm:grid-cols-[6rem_1fr]">
+            <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-gray-600">
+              Meaning
             </dt>
             <dd className="text-sm leading-relaxed text-gray-400">{project.takeaway}</dd>
           </div>
         </dl>
-        <div className="mt-7 flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-white/10 px-3 py-1 text-[11px] text-gray-500"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+      </div>
+
+      <div className="mt-8 flex flex-wrap gap-2">
+        {project.tags.map((tag) => (
+          <span
+            key={tag}
+            className="rounded-full border border-white/10 px-3 py-1 text-[11px] text-gray-500"
+          >
+            {tag}
+          </span>
+        ))}
       </div>
     </motion.article>
   );
@@ -167,13 +181,13 @@ export default function CourseProjects() {
         <div className="mx-auto max-w-6xl">
           <SectionIntro
             index="01"
-            eyebrow="Project stories"
-            title="Four ways of seeing a signal."
-            description="The strongest assignments are reframed here as compact case studies: a question, an analytical approach, and the conclusion the data supported."
+            eyebrow="Questions + results"
+            title="Four results worth seeing."
+            description="Each study starts with the original assignment question, then shows the actual result produced from the submitted data and analysis."
           />
           <div className="mt-2">
-            {coursePortfolio.projects.map((project, index) => (
-              <ProjectStory key={project.id} project={project} index={index} />
+            {coursePortfolio.projects.map((project) => (
+              <ProjectStory key={project.id} project={project} />
             ))}
           </div>
           <Toolkit />
