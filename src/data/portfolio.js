@@ -136,6 +136,8 @@ export const portfolioData = {
       title: 'AI-Augmented Treatment for Parkinson’s Disease',
       image: 'images/parkinsons-clinical-ai.jpg',
       period: 'Oct 2025 — Jul 2026',
+      link: `${import.meta.env.BASE_URL}posters/nabupd-gonda-meeting-poster.pdf`,
+      linkLabel: 'View poster',
       description:
         'Helped design a WhatsApp-based clinical AI agent with domain-specific agents that capture symptoms, medication events, and patient routines.',
       tags: ['Clinical AI', 'Conversational Agents', 'Parkinson’s Disease'],
@@ -144,6 +146,8 @@ export const portfolioData = {
       title: 'LoCoPD: Longitudinal Conversational Modelling',
       image: 'images/locopd-longitudinal-modelling.jpg',
       period: 'Mar 2026 — Jul 2026',
+      link: `${import.meta.env.BASE_URL}posters/locopd-gonda-meeting-poster.pdf`,
+      linkLabel: 'View poster',
       description:
         'Built a synthetic patient generator for realistic, multidimensional profiles representing people living with Parkinson’s disease.',
       tags: ['Synthetic Data', 'Patient Modelling', 'Parkinson’s Disease'],
@@ -152,6 +156,8 @@ export const portfolioData = {
       title: 'Covert Speech Classification with a Spatio-Temporal Transformer',
       image: 'images/covert-speech-eeg-transformer.jpg',
       period: 'Oct 2025 — Mar 2026',
+      link: 'https://github.com/kidusabe1/Imagined-Speech-Decoding',
+      linkLabel: 'View repository',
       description:
         'Performed model interpretability analysis for a functional-area spatio-temporal transformer used in EEG-based imagined-speech classification.',
       tags: ['EEG', 'Transformers', 'Interpretability'],
@@ -163,6 +169,7 @@ export const portfolioData = {
       period: 'Course portfolio',
       link: `${import.meta.env.BASE_URL}course/signal-data-analysis/`,
       internal: true,
+      linkLabel: 'Explore course',
       description:
         'Four computational studies spanning signal denoising, event-related firing, spike-train dynamics, and latent structure in LFP trials.',
       tags: ['Computational Neuroscience', 'Signal Processing', 'Python'],

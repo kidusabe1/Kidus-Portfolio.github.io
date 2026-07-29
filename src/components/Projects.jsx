@@ -10,6 +10,7 @@ function ProjectCard({ project, index }) {
   const linkProps = project.link
     ? {
         href: project.link,
+        'aria-label': `${project.linkLabel || 'Explore project'}: ${project.title}`,
         ...(project.internal
           ? {}
           : { target: '_blank', rel: 'noopener noreferrer' }),
@@ -23,7 +24,7 @@ function ProjectCard({ project, index }) {
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`group glass-card glow-border rounded-2xl overflow-hidden block ${
+      className={`group glass-card glow-border rounded-2xl overflow-hidden flex h-full flex-col ${
         project.link ? 'cursor-pointer' : ''
       }`}
     >
@@ -61,7 +62,7 @@ function ProjectCard({ project, index }) {
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="flex flex-1 flex-col p-5">
         <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-gray-300 transition-colors duration-200">
           {project.title}
         </h3>
@@ -78,6 +79,18 @@ function ProjectCard({ project, index }) {
             </span>
           ))}
         </div>
+        {project.link && (
+          <span className="mt-auto pt-5">
+            <span className="flex items-center justify-between border-t border-white/10 pt-4 text-xs font-medium text-gray-200">
+              {project.linkLabel || 'Explore project'}
+              <ExternalLink
+                size={14}
+                aria-hidden="true"
+                className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              />
+            </span>
+          </span>
+        )}
       </div>
     </Card>
   );
