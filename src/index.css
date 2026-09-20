@@ -200,109 +200,45 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.course-readout {
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(13, 18, 16, 0.76);
-  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.28);
+.course-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
 }
 
-.course-live-dot {
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 999px;
-  background: var(--course-accent);
-  box-shadow: 0 0 0.8rem rgba(167, 243, 208, 0.7);
-}
-
-.course-waveform {
-  display: flex;
-  height: 8rem;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.course-waveform span {
-  width: 100%;
-  height: var(--bar-height);
-  min-height: 2px;
-  background: linear-gradient(to bottom, rgba(167, 243, 208, 0.18), var(--course-accent));
-  opacity: 0.86;
-}
-
-.course-raster-row {
-  display: grid;
-  grid-template-columns: repeat(18, 1fr);
-  gap: 0.25rem;
-}
-
-.course-raster-row span {
-  height: 0.2rem;
-  background: rgba(255, 255, 255, 0.055);
-}
-
-.course-raster-row span.is-spike {
-  height: 0.7rem;
-  margin-top: -0.25rem;
-  background: rgba(255, 255, 255, 0.72);
-}
-
-.course-stat,
-.course-finding {
-  background: #0d0d0d;
-}
-
+.course-study-link { background: #0d1210; }
+.course-study-link:hover { background: #17231c; }
+.course-link { color: var(--course-accent); text-decoration: underline; text-underline-offset: 0.25em; }
+.course-link:hover { text-decoration-thickness: 2px; }
+.course-result { border-color: var(--course-accent); }
 .course-chart-frame {
-  overflow: hidden;
-  padding: clamp(0.75rem, 1.8vw, 1.5rem);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   background: #0d1210;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
 }
-
-.course-chart-frame img {
-  border: 1px solid rgba(255, 255, 255, 0.06);
+.course-findings { border-block: 1px solid rgba(255,255,255,.1); background: #0d1210; }
+.course-page [id] { scroll-margin-top: 6rem; }
+.course-page :is(a, button, summary):focus-visible {
+  outline: 3px solid var(--course-accent);
+  outline-offset: 5px;
 }
-
-.course-question {
-  border-left: 2px solid var(--course-accent);
-  background: rgba(255, 255, 255, 0.025);
-  padding: 1.25rem;
-}
-
-.course-findings {
-  border-block: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(255, 255, 255, 0.015);
-}
-
+.course-skip { position: fixed; top: -8rem; left: 1rem; z-index: 60; padding: .75rem 1rem; background: #0d1210; color: #a7f3d0; }
+.course-skip:focus { top: 1rem; }
+.course-evidence summary { padding-block: .25rem; }
+.course-evidence[open] summary { color: var(--course-accent); }
 .light .course-page {
-  --course-accent: #047857;
-  background:
-    radial-gradient(circle at 82% 8%, rgba(5, 150, 105, 0.08), transparent 28rem),
-    #f4f4f2;
+  --course-accent: #046348;
+  background: #f4f4f2;
 }
-
-.light .course-nav { background: rgba(244, 244, 242, 0.84); }
-.light .course-readout {
-  border-color: rgba(0, 0, 0, 0.11);
-  background: rgba(247, 250, 248, 0.9);
-  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.08);
-}
-.light .course-stat,
-.light .course-finding { background: #f7f7f5; }
-.light .course-chart-frame {
-  border-color: rgba(0, 0, 0, 0.1);
-  background: #f7f7f5;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.08);
-}
-.light .course-chart-frame img { border-color: rgba(0, 0, 0, 0.06); }
-.light .course-question { background: rgba(0, 0, 0, 0.018); }
-.light .course-raster-row span { background: rgba(0, 0, 0, 0.06); }
-.light .course-raster-row span.is-spike { background: rgba(0, 0, 0, 0.62); }
-.light .course-findings {
-  border-color: rgba(0, 0, 0, 0.06);
-  background: rgba(0, 0, 0, 0.015);
-}
+.light .course-nav { background: rgba(244,244,242,.94); }
+.light .course-study-link, .light .course-chart-frame, .light .course-findings { background: #f7f7f5; border-color: rgba(0,0,0,.14); }
+.light .course-study-link:hover { background: #e5eee8; }
+.light .course-page .text-gray-400 { color: #505950; }
+.light .course-page .text-gray-300 { color: #303a32; }
+.light .course-skip { background: #f7f7f5; color: #046348; }
+html:has(.course-page) { scroll-behavior: auto; }
 
 .course-project-cover {
   position: relative;

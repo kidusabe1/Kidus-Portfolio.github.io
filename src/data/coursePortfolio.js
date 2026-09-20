@@ -3,119 +3,86 @@ export const coursePortfolio = {
     title: 'Signal and Data Analysis for Neuroscience',
     instructor: 'Prof. Izhar Bar-Gad',
     student: 'Kidus Abebe Mekonen',
-    role: 'Neuro-AI Researcher',
-    summary:
-      'Four assignments on signal estimation, stimulus-locked firing, spike-train dynamics, and dimensionality reduction.',
+    summary: 'How do analysis choices change what we can conclude from neural data? I explored how smoothing, event alignment, spike-history models, and dimensionality reduction reveal different kinds of structure.',
   },
-
-  stats: [
-    { value: '04', label: 'featured studies' },
-    { value: '07', label: 'core methods' },
-    { value: '01', label: 'analytical journey' },
-  ],
-
   projects: [
     {
-      id: 'signal-recovery',
-      index: '01 / 04',
-      eyebrow: 'Signal estimation',
-      title: 'Recovering structure from a noisy signal',
+      id: 'signal-recovery', index: '01', nav: 'Recover a signal', eyebrow: 'Signal estimation',
+      title: 'How much smoothing is enough?',
+      context: '5,000 samples · noisy_signal.csv · Gaussian convolution',
       assignment: 'Assignment 02 · Question 1',
-      question:
-        'The file noisy_signal.csv contains 5,000 noisy samples. Compare the supplied Gaussian window sizes and sigma values, recommend a window for estimating the signal, estimate the noise from the residual, and report the SNR in dB.',
-      approach:
-        'Compared Gaussian kernels across window sizes and standard deviations, estimated additive noise from the residual, and evaluated the resulting SNR.',
-      result:
-        'A 50-sample Gaussian window with σ = 10 separated the slow oscillation from the high-frequency residual and produced an estimated SNR of 9.40 dB.',
-      takeaway:
-        'The plot makes the trade-off visible: smoothing reveals the underlying waveform, but more aggressive kernels begin to flatten meaningful structure.',
-      tags: ['Gaussian convolution', 'SNR', 'Bias and variance'],
-      chart: 'signal-recovery',
-      chartAlt:
-        'Noisy oscillating signal overlaid with its Gaussian-smoothed estimate, with the residual noise shown below.',
+      question: 'Compare the supplied Gaussian window sizes and standard deviations, choose an estimate of the signal, estimate the noise from the residual, and report the SNR in dB.',
+      decision: 'I compared six Gaussian kernels and chose a 50-sample window with σ = 10 as a visual compromise: it suppresses rapid fluctuations while retaining the slow waveform. I normalized the kernel, cropped the full convolution to the recording length, and subtracted that estimate from the recording.',
+      result: 'The selected estimate retains the slow oscillation; the widest kernel visibly attenuates it. The residual-based SNR is 9.40 dB.',
+      charts: [
+        { name: 'kernel-comparison', title: 'Compare the choice', alt: 'Three Gaussian estimates: a small kernel retains rapid fluctuations, the selected kernel follows the slow oscillation, and the widest kernel flattens it.', caption: 'Three of the six tested kernels, on the same samples and amplitude scale. The dashed curve shows how heavy smoothing removes slow structure too.' },
+        { name: 'signal-residual', title: 'Inspect what was removed', alt: 'Residual after subtracting the selected signal estimate, with an estimated SNR of 9.40 dB.', caption: 'Residual = recording − estimate. SNR = 10 log₁₀(mean estimate² / mean residual²), using the notebook’s 25-front / 24-back crop.' },
+      ],
+      takeaway: 'Choosing a smoother means deciding which variation to retain. I also had to make the additive-noise assumption explicit before interpreting the residual.',
+      limitation: 'The clean signal is unknown, so the residual may contain real signal as well as noise. This SNR depends on the chosen filter; it does not establish an optimal kernel. A next check would compare boundary handling and test recovery on a signal with known ground truth.',
+      verification: 'Recomputed for this portfolio: 9.4046 dB agrees with the notebook’s saved code output. Its prose says 0.36 dB; that stale paragraph is preserved in the source export and corrected here.',
+      notebookCell: 12, notebookSection: 'SNR calculation and saved output',
+      tags: ['Gaussian convolution', 'Residual analysis', 'SNR'],
     },
     {
-      id: 'neural-response',
-      index: '02 / 04',
-      eyebrow: 'Event-related activity',
-      title: 'Characterizing stimulus-driven neural responses',
+      id: 'neural-response', index: '02', nav: 'Reveal a response', eyebrow: 'Event-related activity',
+      title: 'What does the average firing rate hide?',
+      context: '100 stimulus events · spike times aligned to stimulus onset',
       assignment: 'Assignment 03 · Question 3',
-      question:
-        'Using the provided spike and stimulation times, compute the pre-stimulus mean firing rate and stimulation rate, determine how stimulation affects the mean firing rate, and describe the response using a clearly defined time window.',
-      approach:
-        'Computed baseline and evoked rates, aligned spikes to approximately 100 stimulus events, then normalized binned counts into a peri-stimulus time histogram.',
-      result:
-        'Across 100 stimuli, firing rose from an 18.55 Hz baseline to a 113.2 Hz peak at 75 ms, followed by distinct secondary responses near 350 ms and 650 ms.',
-      takeaway:
-        'The overall post-stimulus mean was only 24.89 Hz. The PSTH exposed a much richer three-epoch response that a single mean would hide.',
-      tags: ['PSTH', 'Tuning curves', 'Firing rate'],
-      chart: 'psth-response',
-      chartAlt:
-        'Peri-stimulus time histogram showing a large early firing peak and two later response epochs.',
+      question: 'Compute pre-stimulus and stimulation-related firing rates, determine how stimulation changes the mean rate, and describe the response using a clearly defined time window.',
+      decision: 'I first compared mean rates in a 200 ms baseline and an 800 ms post-stimulus window. To see when the response occurred, I aligned spikes to each stimulus and built a peri-stimulus time histogram (PSTH), dividing bin counts by 100 events and the 25 ms bin width. I retained 25 ms bins after trying other sizes, without a formal bin-width optimization.',
+      result: 'The post-stimulus mean is 24.89 Hz, but the 75–100 ms bin reaches 113.2 Hz. Averaging over the whole window hides the brief early response.',
+      charts: [
+        { name: 'response-means', title: 'One number per window', alt: 'Mean firing rate rises from 18.55 Hz before stimulation to 24.89 Hz afterward.', caption: 'Means use −200 to 0 ms and 0 to 800 ms, respectively, across 100 stimulus events. Different window durations are normalized to spikes per second.' },
+        { name: 'response-timing', title: 'Keep the timing', alt: 'PSTH with 25 ms bins, a 113.2 Hz peak in the 75–100 ms bin, and smaller later responses.', caption: 'Dashed vertical line: stimulus onset. Dotted horizontal line: baseline. The peak is a bin average, not an exact spike latency.' },
+      ],
+      takeaway: 'The mean tells me how much firing changes; alignment and binning show when it changes. Choosing a time window is part of the interpretation, not just a plotting setting.',
+      limitation: 'Averaging hides trial-to-trial variability, and 25 ms bins cannot establish a 5 ms onset latency. A next step would add a trial raster and uncertainty intervals before making stronger claims about the later responses.',
+      verification: 'The baseline, post-stimulus mean, and peak were reproduced from the supplied times. The regenerated PSTH includes the final 775–800 ms bin, which the notebook’s bin-edge array omitted.',
+      notebookCell: 12, notebookSection: 'Mean-rate calculation, followed by PSTH',
+      tags: ['Event alignment', 'PSTH', 'Firing rate'],
     },
     {
-      id: 'spike-dynamics',
-      index: '03 / 04',
-      eyebrow: 'Point processes',
-      title: 'Finding the refractory fingerprint',
+      id: 'spike-dynamics', index: '03', nav: 'Explain spike timing', eyebrow: 'Simulation · point processes',
+      title: 'What changes when spikes have a history?',
+      context: '90-second simulation · 55 Hz Poisson proposal rate · seed 42',
       assignment: 'Assignment 02 · Question 4',
-      question:
-        'Generate a 90-second Poisson spike train at 55 spikes per second with a 5 ms absolute refractory period and a 6 ms linear recovery. Calculate the TIH, survivor and hazard functions, and rate-normalized autocorrelation over ±100 ms.',
-      approach:
-        'Generated the homogeneous process with a fixed random seed, rejected spikes during absolute refractoriness, probabilistically restored firing during recovery, and compared the interval distribution with the autocorrelation.',
-      result:
-        'The refractory mechanism reduced 4,883 proposed spikes to 3,404 accepted spikes and carved a symmetric five-millisecond hole around zero lag.',
-      takeaway:
-        'The missing short ISIs and the autocorrelation trough are two views of the same biological constraint: the neuron cannot immediately fire again.',
-      tags: ['Poisson process', 'Hazard function', 'Cross-correlation'],
-      chart: 'refractory-autocorrelation',
-      chartAlt:
-        'Inter-spike interval distributions and rate-normalized autocorrelation showing a five-millisecond refractory gap.',
+      question: 'Simulate a spike train with a 5 ms absolute refractory period and 6 ms linear recovery. Examine its interval histogram, survivor and hazard functions, and rate-normalized autocorrelation over ±100 ms.',
+      decision: 'I generated exponential waiting times for a homogeneous Poisson process, then applied a history-dependent acceptance rule. Candidates within 5 ms of the last accepted spike were rejected; acceptance probability rose linearly during the next 6 ms. Comparing the original and accepted intervals isolates the effect of that rule.',
+      result: 'The rule reduces 4,883 proposed spikes to 3,404 accepted spikes. No accepted inter-spike interval is shorter than 5 ms, and the autocorrelation shows a trough around zero lag.',
+      charts: [
+        { name: 'refractory-intervals', title: 'Compare before and after', alt: 'Inter-spike interval densities for Poisson proposals and accepted spikes; the accepted train has no intervals below 5 ms.', caption: 'Two-millisecond histogram bins, normalized over all intervals; the first 80 ms are displayed. Shading marks the imposed absolute refractory period.' },
+        { name: 'refractory-lags', title: 'Read the same constraint in time', alt: 'Symmetric autocorrelation trough near zero lag for the refractory simulation.', caption: 'Spike times binned at 1 ms. Pair counts are divided by spike count and bin duration to give a conditional rate. Zero-lag self-pairs are omitted.' },
+      ],
+      takeaway: 'The interval distribution and autocorrelation reveal different views of the same timing constraint. Adding a refractory rule changes both the rate and the temporal structure of the simulated train.',
+      limitation: 'This is a consequence of an imposed model, not evidence that a recorded neuron has a 5 ms refractory period. The 55 Hz rate generates candidates; it is not the final firing rate. A next check would vary the seed and recovery duration.',
+      verification: 'The seeded proposal and acceptance counts were reproduced. The displayed autocorrelation uses correctly centered lag indices. The notebook’s Fano factor is not used here: its variance was assigned equal to the mean rather than measured.',
+      notebookCell: 5, notebookSection: 'Refractory acceptance rule',
+      tags: ['Poisson simulation', 'Refractoriness', 'Autocorrelation'],
     },
     {
-      id: 'latent-structure',
-      index: '04 / 04',
-      eyebrow: 'Representation learning',
-      title: 'Finding structure in LFP trials',
-      assignment: 'Assignment 06 · Question 1c',
-      question:
-        'Each row is one LFP trial sampled at 4 kHz. Perform PCA, plot histograms of the trial projections and a PC1-versus-PC2 scatter plot, then explain the plots in terms of representation and potential classification.',
-      approach:
-        'Implemented PCA from the covariance eigendecomposition, checked the components against scikit-learn, then projected all 2,000 trials into the learned coordinate system.',
-      result:
-        'PC1 alone explained 86.6% of the variance; PC1 and PC2 together explained 92.9%. PC1 formed two modes, while the first two projections traced a striking V-shaped geometry.',
-      takeaway:
-        'The bimodal PC1 distribution suggests a compact classification boundary, while PC2 preserves within-group variation that a one-dimensional view would lose.',
-      tags: ['PCA', 'Dimensionality reduction', 'Classification'],
-      chart: 'pca-structure',
-      chartAlt:
-        'Bimodal histogram of PC1 projections beside a V-shaped scatter plot of PC1 against PC2.',
+      id: 'latent-structure', index: '04', nav: 'Find a representation', eyebrow: 'Dimensionality reduction',
+      title: 'Can fewer dimensions preserve useful structure?',
+      context: '2,000 LFP trials × 20 time samples · sampled at 4 kHz',
+      assignment: 'Assignment 06 · Question 1a–d',
+      question: 'Compute PCA using a library and a custom implementation. Inspect component coefficients, projection histograms, a PC1-versus-PC2 scatter plot, and explained variance; discuss representation and potential classification.',
+      decision: 'I centered the trials, formed the covariance-proportional matrix, and projected onto its leading eigenvectors. Comparing my components with scikit-learn exposed sign flips. I investigated why axes can point in either direction: flipping an axis also flips its scores, while preserving distances and the represented structure.',
+      result: 'PC1 explains 86.6% of the variance; the first two components explain 92.9%. The PC1 histogram has two modes, while PC2 reveals variation within the projected structure.',
+      charts: [
+        { name: 'pca-distribution', title: 'Inspect one dimension', alt: 'Thirty-bin histogram of PC1 scores with two visible modes.', caption: 'Each trial becomes one PC1 score. The two modes suggest a possible separation, but no class labels or classification performance are established.' },
+        { name: 'pca-projection', title: 'Retain a second dimension', alt: 'PC1 against PC2 projections for 2,000 trials, forming two sloping arms.', caption: 'Each point is one trial. Axis signs are arbitrary; a mirrored projection represents the same geometry. The first two axes retain 92.9% of variance.' },
+      ],
+      takeaway: 'Validation requires understanding what agreement should mean. A sign difference in PCA is not necessarily an implementation error; the appropriate comparison aligns equivalent axes first.',
+      limitation: 'High explained variance is not classification accuracy. To evaluate classification, I would need meaningful labels and held-out evaluation. These plots establish a compact representation, not a validated classifier.',
+      verification: 'Assignment 6 specifies LFP trials at 4 kHz, agreeing with fs = 4000 in the code; the notebook’s “40 kHz / potential spikes” description is corrected here. For this portfolio, the first three custom projections also passed a numerical comparison with scikit-learn after sign alignment (absolute tolerance 10⁻⁹).',
+      notebookCell: 12, notebookSection: 'Component comparison and sign-flip reflection',
+      tags: ['PCA from scratch', 'Library comparison', 'Explained variance'],
     },
   ],
-
   learnings: [
-    {
-      title: 'Match the representation to the question',
-      description:
-        'Smoothing windows, histogram bins, and analysis intervals are modeling choices. I learned to set them according to the time scale of the neural process, then check which details they preserve or remove.',
-    },
-    {
-      title: 'Read spike trains from several views',
-      description:
-        'Firing rate alone does not describe temporal structure. Inter-spike intervals, survivor and hazard functions, PSTHs, and autocorrelation answer different questions about the same spikes.',
-    },
-    {
-      title: 'Implement, validate, then interpret',
-      description:
-        'Writing methods from their mathematical definitions made their assumptions clearer. Comparing my implementations with library results helped separate coding errors from meaningful patterns in the data.',
-    },
+    { title: 'Choose what to preserve', description: 'The smoothing comparison and PSTH taught me to make time scale explicit: removing fluctuations and averaging over time can also remove the feature I want to explain.', study: 'signal-recovery', label: 'Revisit the smoothing choice' },
+    { title: 'Separate a model from evidence', description: 'The refractory simulation shows what a rule produces. The PCA plots suggest a representation. Neither alone establishes a biological mechanism or a successful classifier.', study: 'spike-dynamics', label: 'Revisit the simulation' },
+    { title: 'Check the meaning of agreement', description: 'The PCA sign flips made me look beyond matching plots. Revisiting the SNR also showed why numerical output and written interpretation must stay consistent.', study: 'latent-structure', label: 'Revisit PCA validation' },
   ],
-
-  toolkit: [
-    'Python',
-    'NumPy',
-    'SciPy',
-    'Matplotlib',
-    'scikit-learn',
-  ],
+  toolkit: ['Python', 'NumPy', 'SciPy', 'Matplotlib', 'scikit-learn'],
 };
