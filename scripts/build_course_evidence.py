@@ -84,7 +84,7 @@ metrics = {'snr_db': float(snr), 'baseline_hz': float(baseline), 'post_mean_hz':
            'proposed_spikes': len(proposed), 'accepted_spikes': len(accepted),
            'pc1_percent': float(variance[0]), 'pc1_pc2_percent': float(variance[:2].sum()),
            'pca_sign_aligned_max_error': float(error)}
-(EVIDENCE / 'verified-results.json').write_text(json.dumps(metrics, indent=2) + '\n')
+(ROOT / 'docs/course-results.json').write_text(json.dumps(metrics, indent=2) + '\n')
 
 for theme, bg, fg, muted, accent, other in [
     ('light', '#f7f7f5', '#17221d', '#58635d', '#047857', '#a13b55'),
@@ -168,12 +168,12 @@ for theme, bg, fg, muted, accent, other in [
 
 # Static exports: escaped source and saved outputs, without executing notebooks.
 notebooks = [
-    ('signal-recovery', 'Assignment 02/SNR_1.ipynb', 'Recomputed SNR: 9.4046 dB, agreeing with the saved code output. The 0.36 dB paragraph is stale. The original text is preserved below.'),
-    ('neural-response', 'Assignment 3 (2)/PSTH_3.ipynb', 'The portfolio includes the final 775–800 ms histogram bin omitted in this notebook. The peak is a 75–100 ms bin, not an exact response latency.'),
-    ('spike-dynamics', 'Assignment 02/poisson_with_refractory_period_04.ipynb', 'The portfolio reproduces the seeded simulation and corrects the autocorrelation lag indexing. Fano factors below were assigned using variance = mean, not estimated; they are not used as evidence. The smoothed-autocorrelation section is not used in the portfolio.'),
-    ('latent-structure', 'Assignment 6/PCA_1.ipynb', 'Assignment 6 identifies these as LFP trials at 4 kHz, matching fs = 4000 in the code. The 40 kHz / potential-spikes prose is inaccurate. Flipping a PCA axis also flips its scores, while preserving geometry; the portfolio checks agreement after sign alignment. No classification accuracy was measured.'),
+    ('signal-recovery', 'Assignment 02/SNR_1.ipynb'),
+    ('neural-response', 'Assignment 3 (2)/PSTH_3.ipynb'),
+    ('spike-dynamics', 'Assignment 02/poisson_with_refractory_period_04.ipynb'),
+    ('latent-structure', 'Assignment 6/PCA_1.ipynb'),
 ]
-for slug, path, note in notebooks:
+for slug, path in notebooks:
     cells = []
     for i, cell in enumerate(json.loads((SOURCE / path).read_text())['cells']):
         source = html.escape(''.join(cell['source']))
@@ -190,6 +190,6 @@ for slug, path, note in notebooks:
         cells.append(f'<section id="cell-{i + 1}"><h2>Cell {i + 1} · {cell["cell_type"]}</h2><pre class="{cell["cell_type"]}">{source}</pre>{"".join(outputs)}</section>')
     doc = f'''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{html.escape(Path(path).name)} · SDA notebook</title>
 <style>body{{font:16px/1.65 system-ui,sans-serif;max-width:960px;margin:40px auto;padding:0 20px;color:#17221d;background:#f7f7f5}}a{{color:#046348}}a:focus-visible{{outline:3px solid #047857;outline-offset:5px}}h1{{overflow-wrap:anywhere}}h2{{font-size:14px;color:#58635d}}aside{{padding:20px;border-left:3px solid #047857;background:#e9efe9}}section{{border-top:1px solid #ccd4ce;margin-top:32px}}pre{{overflow:auto;padding:16px;background:#ebeeea;font-size:13px}}pre.markdown{{white-space:pre-wrap;font:inherit;background:transparent;padding:0}}img{{max-width:100%;height:auto}}.output{{background:#e3ebe5}}</style>
-<a href="../../course/signal-data-analysis/#{slug}">← Back to study</a><h1>{html.escape(Path(path).name)}</h1><p>Original notebook · source text and saved outputs</p><aside><strong>Portfolio verification note</strong><p>{html.escape(note)}</p></aside><p>Markdown source is shown with trailing whitespace normalized. These saved outputs are historical; the portfolio’s regenerated figures are documented separately.</p>{''.join(cells)}</html>'''
+<a href="../../course/signal-data-analysis/#{slug}">← Back to study</a><h1>{html.escape(Path(path).name)}</h1><p>Original notebook · source text and saved outputs</p>{''.join(cells)}</html>'''
     (EVIDENCE / f'{slug}.html').write_text("\n".join(line.rstrip() for line in doc.splitlines()) + "\n")
 print(json.dumps(metrics, indent=2))

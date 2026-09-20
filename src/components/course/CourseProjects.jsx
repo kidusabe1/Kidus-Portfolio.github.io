@@ -39,13 +39,12 @@ function ProjectStory({ project }) {
       </div>
       <div className="mt-8 grid gap-7 md:grid-cols-2">
         <div><h4 className="course-label course-accent">What I learned</h4><p className="mt-3 leading-relaxed text-gray-200">{project.takeaway}</p></div>
-        <div><h4 className="course-label text-gray-400">Limits and next check</h4><p className="mt-3 leading-relaxed text-gray-300">{project.limitation}</p></div>
+        <div><h4 className="course-label text-gray-400">Limits of the analysis</h4><p className="mt-3 leading-relaxed text-gray-300">{project.limitation}</p></div>
       </div>
       <details className="course-evidence mt-7 border-y border-white/10 py-4">
-        <summary className="cursor-pointer text-sm font-medium text-gray-200">Assignment brief & verification notes</summary>
-        <div className="mt-5 grid gap-6 md:grid-cols-2">
+        <summary className="cursor-pointer text-sm font-medium text-gray-200">Assignment brief</summary>
+        <div className="mt-5 max-w-3xl">
           <div><p className="course-label text-gray-400">{project.assignment} · Summarized</p><p className="mt-3 text-sm leading-relaxed text-gray-300">{project.question}</p></div>
-          <div><p className="course-label course-accent">Verified for this portfolio</p><p className="mt-3 text-sm leading-relaxed text-gray-300">{project.verification}</p></div>
         </div>
       </details>
       <div className="mt-5 flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
@@ -70,7 +69,7 @@ export default function CourseProjects() {
           <h2 id="studies-title" className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Learning to choose an analysis.</h2>
           <p className="mt-4 max-w-3xl leading-relaxed text-gray-300">These are separate datasets and a simulation, connected by one question: what does each representation preserve, and what can I reasonably conclude from it?</p>
           {coursePortfolio.projects.map(project => <ProjectStory key={project.id} project={project} />)}
-          <p className="mt-8 text-sm leading-relaxed text-gray-400">Built with {coursePortfolio.toolkit.join(', ')}. Figures were regenerated from the course data; notebook exports preserve the original work, with verification notes for corrections. <a className="course-link" href={`${base}evidence/course/verified-results.json`}>View recomputed values →</a></p>
+          <p className="mt-8 text-sm leading-relaxed text-gray-400">Built with {coursePortfolio.toolkit.join(', ')}.</p>
         </div>
       </section>
       <section aria-labelledby="learnings-title" className="course-findings px-5 py-14 sm:px-6 sm:py-20">
