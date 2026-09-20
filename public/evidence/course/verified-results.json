@@ -1,0 +1,15 @@
+{
+  "snr_db": 9.404596896957703,
+  "baseline_hz": 18.55,
+  "post_mean_hz": 24.8875,
+  "peak_hz": 113.2,
+  "peak_bin_ms": [
+    75,
+    100
+  ],
+  "proposed_spikes": 4883,
+  "accepted_spikes": 3404,
+  "pc1_percent": 86.58505190159286,
+  "pc1_pc2_percent": 92.88381826503726,
+  "pca_sign_aligned_max_error": 2.55395704584771e-12
+}
